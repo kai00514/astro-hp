@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astroの特徴 | アスベスト事前調査AI「Astro」</title>
+<meta name="description" content="Astroが調査業務のどこを、どのように変えるのか。3つのAI・受注率向上・確かな根拠・品質の標準化・一気通貫の5つの特徴とその導入効果をご紹介します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Noto Sans JP',sans-serif;color:#10315C;background:#fff;-webkit-font-smoothing:antialiased;}
+a{color:#2360D6;text-decoration:none;}a:hover{color:#0B3AA0;}
+.mono{font-family:'Barlow',sans-serif;}
+html{scroll-behavior:smooth;}
+img{max-width:100%;}
+@keyframes heroReveal{0%{opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-14px);}60%{opacity:1;}100%{opacity:1;clip-path:inset(0 0 0 0);transform:translateX(0);}}
+@keyframes heroFade{from{opacity:0;}to{opacity:1;}}
+@keyframes heroSweep{0%{transform:rotate(-32deg) translateY(28%);}100%{transform:rotate(-32deg) translateY(-28%);}}
+@keyframes heroDrift{0%,100%{transform:rotate(-12deg) translateY(0);}50%{transform:rotate(-9deg) translateY(-16px);}}
+@keyframes heroDrift2{0%,100%{transform:rotate(18deg) translateY(0);}50%{transform:rotate(22deg) translateY(14px);}}
+[data-anim]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);will-change:opacity,transform;}
+[data-anim].om-in{opacity:1;transform:translateY(0);}
+[data-anim="left"]{transform:translateX(-34px);}
+[data-anim="right"]{transform:translateX(34px);}
+[data-anim="left"].om-in,[data-anim="right"].om-in{transform:translateX(0);}
+a[href]{transition:transform .25s ease,box-shadow .25s ease,opacity .25s ease;}
+a[href]:hover{opacity:0.92;}
+.om-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,43,83,0.28)!important;}
+@keyframes ctaPulse{0%,100%{box-shadow:0 6px 16px rgba(232,98,14,0.28);}50%{box-shadow:0 10px 28px rgba(232,98,14,0.5);}}
+@keyframes ctaSheen{0%{left:-140%;}60%,100%{left:140%;}}
+.om-cta{position:relative;overflow:hidden;}
+.om-cta::after{content:"";position:absolute;top:0;left:-140%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,0.55),transparent);transform:skewX(-20deg);pointer-events:none;}
+.om-cta:hover::after{animation:ctaSheen .9s ease;}
+.om-cta-trial{animation:ctaPulse 2.4s ease-in-out infinite;}
+.om-card{transition:transform .35s ease,box-shadow .35s ease;}
+.om-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,43,83,0.16)!important;}
+
+/* ===== Responsive (mobile) ===== */
+@media (max-width:860px){
+  .site-nav{display:none!important;}
+  .hero-inner{padding:150px 20px 110px!important;}
+  .hero-title{font-size:32px!important;}
+  .hero-lead{font-size:16px!important;text-align:left!important;}
+  .intro-grid{grid-template-columns:1fr!important;gap:32px!important;}
+  .intro-grid h2{font-size:28px!important;}
+  .feat-cards{grid-template-columns:repeat(2,1fr)!important;}
+  .feat-list{padding:64px 20px 24px!important;gap:64px!important;}
+  .feat-row{grid-template-columns:1fr!important;gap:28px!important;}
+  .feat-row .feat-img{order:2!important;}
+  .feat-row .feat-body{order:1!important;}
+  .feat-row h2{font-size:23px!important;}
+  .feat-blue{padding:32px 22px!important;border-radius:18px!important;}
+  .cta-card{padding:36px 22px!important;}
+  .cta-card h3{font-size:22px!important;}
+}
+@media (max-width:460px){
+  .feat-cards{grid-template-columns:1fr!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER + HERO ============ -->
+<div style="position:relative;">
+  <div style="position:absolute;top:20px;left:0;right:0;z-index:5;padding:0 20px;">
+    <div style="max-width:1160px;margin:0 auto;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:22px;padding:0 12px 0 24px;height:72px;display:flex;align-items:center;gap:14px;box-shadow:0 12px 34px rgba(11,43,83,0.16);border:1px solid rgba(237,240,245,0.7);">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;white-space:nowrap;">
+        <img src="assets/Astro-logo-trimmed.png" alt="Astro" style="height:21px;width:auto;display:block;">
+      </a>
+      <nav class="site-nav" style="display:flex;gap:14px;margin-left:auto;font-size:13px;font-weight:700;min-width:0;">
+        <a href="#top" style="color:#2360D6;white-space:nowrap;">Astroの特徴</a>
+        <a href="index.html#demo" style="color:#10315C;white-space:nowrap;">デモ体験</a>
+        <a href="index.html#effect" style="color:#10315C;white-space:nowrap;">導入効果</a>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center;flex:none;">
+        <a href="index.html#contact" style="padding:11px 15px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">お問い合わせ</a>
+        <a href="index.html#contact" class="om-cta om-cta-trial" style="padding:11px 15px;border-radius:999px;background:linear-gradient(90deg,#F6A21E,#E8620E);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">無料トライアル</a>
+        <a href="#" style="font-size:12px;font-weight:700;color:#7A879B;margin:0 4px;white-space:nowrap;">ログイン</a>
+      </div>
+    </div>
+  </div>
+  <section id="top" style="position:relative;overflow:hidden;background:linear-gradient(118deg,#071E4E 0%,#0E3A86 40%,#1E56C6 72%,#4E86E8 100%);">
+    <div style="position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(140,190,255,0.13) 0deg 60deg,transparent 60deg 120deg,rgba(9,30,72,0.25) 120deg 180deg,transparent 180deg 240deg,rgba(255,255,255,0.06) 240deg 300deg,transparent 300deg 360deg);background-size:120px 104px;"></div>
+    <div style="position:absolute;inset:0;background:repeating-conic-gradient(from 30deg at 50% 50%,rgba(255,255,255,0.05) 0deg 60deg,transparent 60deg 180deg,rgba(11,42,102,0.2) 180deg 240deg,transparent 240deg 360deg);background-size:240px 208px;background-position:60px 52px;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(115deg,rgba(120,180,255,0.3),transparent 50%);clip-path:polygon(0 0,30% 0,8% 100%,0 100%);"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(245deg,rgba(143,240,211,0.2),transparent 55%);clip-path:polygon(76% 0,100% 0,100% 58%,50% 100%);"></div>
+    <div style="position:absolute;inset:-40%;background:linear-gradient(0deg,transparent 46%,rgba(255,255,255,0.16) 50%,transparent 54%);animation:heroSweep 9s ease-in-out infinite alternate;transform:rotate(-32deg);"></div>
+    <div style="position:absolute;top:-140px;right:-80px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(120,190,255,0.32),transparent 65%);"></div>
+    <div style="position:absolute;top:16%;right:10%;width:200px;height:200px;background:linear-gradient(135deg,rgba(255,255,255,0.16),rgba(120,180,255,0.05));clip-path:polygon(50% 0,100% 86%,0 86%);filter:blur(3px);animation:heroDrift 11s ease-in-out infinite;transform:rotate(-12deg);"></div>
+    <div style="position:absolute;bottom:18%;left:20%;width:160px;height:160px;background:linear-gradient(315deg,rgba(143,240,211,0.14),rgba(11,42,102,0.1));clip-path:polygon(50% 0,100% 86%,0 86%);filter:blur(8px);animation:heroDrift2 13s ease-in-out infinite;transform:rotate(18deg);"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:42%;background:#fff;clip-path:polygon(0 100%,100% 72%,100% 100%);"></div>
+    <div class="hero-inner" style="position:relative;max-width:1160px;margin:0 auto;padding:168px 24px 132px;text-align:left;">
+      <p class="mono" style="margin:0;font-size:15px;font-weight:600;letter-spacing:0.22em;color:#8FF0D3;animation:heroFade .9s ease both .2s;">FEATURES</p>
+      <h1 class="hero-title" style="margin:18px 0 0;font-size:44px;font-weight:900;line-height:1.35;color:#fff;display:inline-flex;flex-direction:column;align-items:flex-start;gap:8px;">
+        <span style="background:#0B2A66;display:inline-block;padding:10px 20px;animation:heroReveal .8s cubic-bezier(.22,.61,.36,1) both .3s;">Astroの特徴</span>
+      </h1>
+      <p class="hero-lead" style="margin:24px 0 0;color:#fff;font-size:19px;font-weight:700;line-height:2;text-shadow:0 2px 12px rgba(6,18,40,0.55);text-align:right;animation:heroFade .9s ease both .95s;">Astroが調査業務のどこを、どのように変えるのか。<br>5つの特徴と、それぞれの導入効果をご紹介します。</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ INTRO + カード ============ -->
+<section style="background:#fff;padding:24px 32px 8px;">
+  <div class="intro-grid" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;">
+    <div data-anim="left">
+      <h2 style="margin:0;font-size:38px;font-weight:900;line-height:1.5;color:#10315C;">アスベスト事前調査業務を<br><span style="background: linear-gradient(120deg, rgb(11, 58, 160), rgb(35, 96, 214) 45%, rgb(127, 178, 255)) text; -webkit-text-fill-color: transparent;">より早く､安く<span style="background-color: initial; -webkit-text-fill-color: transparent;">､</span><span style="background: linear-gradient(120deg, rgb(11, 58, 160), rgb(35, 96, 214) 45%, rgb(127, 178, 255)) text; -webkit-text-fill-color: transparent;">正確</span>に。<br></span></h2>
+      <p style="margin:26px 0 0;font-size:15px;line-height:2;color:#4B5563;">図面の書き起こしから目視判定、分析依頼、報告書・行政申請まで。<br>アスベスト事前調査のすべての工程を、根拠のあるAIでワンストップに支援。<br>調査・見積・報告のすべてを、スピードと確実さの両面で強力に支えます。</p>
+    </div>
+    <div data-anim="right" style="background:#0E2340;border-radius:16px;padding:12px;box-shadow:0 30px 70px rgba(6,18,40,0.28);">
+      <div style="border-radius:8px;overflow:hidden;background:#EAF1FF;">
+        <img src="assets/hero-pc.png" alt="AstroのプロダクトUI" style="width:100%;height:auto;display:block;">
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-cards" style="max-width:1080px;margin:56px auto 0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+    <a href="#feat-01" class="om-card" style="background:#F4F6FA;border:1px solid #E1E6EF;border-radius:12px;padding:22px 16px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <span class="mono" style="font-size:30px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">01</span>
+      <span style="font-size:13px;font-weight:900;color:#10315C;line-height:1.6;">3つのAIで<br>効率と価値を両立</span>
+      <span style="color:#2360D6;font-size:14px;line-height:1;">⌄</span>
+    </a>
+    <a href="#feat-02" class="om-card" style="background:#F4F6FA;border:1px solid #E1E6EF;border-radius:12px;padding:22px 16px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <span class="mono" style="font-size:30px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">02</span>
+      <span style="font-size:13px;font-weight:900;color:#10315C;line-height:1.6;">見積スピードと<br>提案力で受注率向上</span>
+      <span style="color:#2360D6;font-size:14px;line-height:1;">⌄</span>
+    </a>
+    <a href="#feat-03" class="om-card" style="background:#F4F6FA;border:1px solid #E1E6EF;border-radius:12px;padding:22px 16px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <span class="mono" style="font-size:30px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">03</span>
+      <span style="font-size:13px;font-weight:900;color:#10315C;line-height:1.6;">確かな根拠をもとに<br>判定を提示</span>
+      <span style="color:#2360D6;font-size:14px;line-height:1;">⌄</span>
+    </a>
+    <a href="#feat-04" class="om-card" style="background:#F4F6FA;border:1px solid #E1E6EF;border-radius:12px;padding:22px 16px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <span class="mono" style="font-size:30px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">04</span>
+      <span style="font-size:13px;font-weight:900;color:#10315C;line-height:1.6;">調査品質の<br>ばらつきをなくす</span>
+      <span style="color:#2360D6;font-size:14px;line-height:1;">⌄</span>
+    </a>
+    <a href="#feat-05" class="om-card" style="background:#F4F6FA;border:1px solid #E1E6EF;border-radius:12px;padding:22px 16px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <span class="mono" style="font-size:30px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">05</span>
+      <span style="font-size:13px;font-weight:900;color:#10315C;line-height:1.6;">全工程を<br>1つの基盤で完結</span>
+      <span style="color:#2360D6;font-size:14px;line-height:1;">⌄</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FEATURES 01-05 ============ -->
+<div class="feat-list" style="max-width:1080px;margin:0 auto;padding:96px 32px 40px;display:flex;flex-direction:column;gap:96px;">
+
+  <!-- 01 -->
+  <section id="feat-01" class="feat-row" style="scroll-margin-top:96px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+    <div class="feat-body" data-anim="left">
+      <div style="display:flex;align-items:baseline;gap:14px;">
+        <span class="mono" style="font-size:64px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">01</span>
+        <span class="mono" style="font-size:13px;font-weight:600;letter-spacing:0.12em;color:#24C39A;">3 AI ENGINES</span>
+      </div>
+      <h2 style="margin:16px 0 0;font-size:28px;font-weight:900;line-height:1.5;">3つのAIで、業務効率と<br>事業価値を同時に高める</h2>
+      <p style="margin:16px 0 0;font-size:15px;font-weight:700;color:#2360D6;line-height:1.8;">→ 書面・目視・報告のすべてで、時間もコストも事業価値も改善</p>
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px;">
+        <div style="background:#F7F9FC;border:1px solid #E1E6EF;border-radius:10px;padding:14px 18px;display:flex;align-items:baseline;gap:12px;"><span class="mono" style="flex:none;font-size:13px;font-weight:700;color:#2360D6;width:66px;">Zumiru</span><span style="font-size:13.5px;line-height:1.8;">書面調査を <span class="mono" style="font-weight:700;">90%削減（2日→30分）</span>／即見積り・根拠ある調査計画</span></div>
+        <div style="background:#F7F9FC;border:1px solid #E1E6EF;border-radius:10px;padding:14px 18px;display:flex;align-items:baseline;gap:12px;"><span class="mono" style="flex:none;font-size:13px;font-weight:700;color:#2360D6;width:66px;">Asmiru</span><span style="font-size:13.5px;line-height:1.8;">検体数 <span class="mono" style="font-weight:700;">10→5</span>・分析費 <span class="mono" style="font-weight:700;">30万→15万円</span>・待ち時間 <span class="mono" style="font-weight:700;">8→4営業日</span></span></div>
+        <div style="background:#F7F9FC;border:1px solid #E1E6EF;border-radius:10px;padding:14px 18px;display:flex;align-items:baseline;gap:12px;"><span class="mono" style="flex:none;font-size:13px;font-weight:700;color:#2360D6;width:66px;">Hokumiru</span><span style="font-size:13.5px;line-height:1.8;">報告・申請の事務作業を <span class="mono" style="font-weight:700;">95%削減（5時間→15分）</span></span></div>
+      </div>
+    </div>
+    <div class="feat-img om-card" data-anim="right" style="border-radius:16px;overflow:hidden;background:#F4F6FA;border:1px solid #E1E6EF;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:24px;">
+      <img src="assets/img-bridge-t.png" alt="3つのAIで効率化" style="max-width:100%;max-height:100%;object-fit:contain;">
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section id="feat-02" class="feat-row feat-blue" style="scroll-margin-top:96px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;background:#E4EEFC;border-radius:24px;padding:52px 48px;">
+    <div class="feat-img om-card" data-anim="right" style="order:2;border-radius:16px;overflow:hidden;background:#F4F6FA;border:1px solid #E1E6EF;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:24px;">
+      <img src="assets/img-pain2-t.png" alt="見積提出スピード" style="max-width:100%;max-height:100%;object-fit:contain;">
+    </div>
+    <div class="feat-body" data-anim="left" style="order:1;">
+      <div style="display:flex;align-items:baseline;gap:14px;">
+        <span class="mono" style="font-size:64px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">02</span>
+        <span class="mono" style="font-size:13px;font-weight:600;letter-spacing:0.12em;color:#24C39A;">WIN RATE</span>
+      </div>
+      <h2 style="margin:16px 0 0;font-size:28px;font-weight:900;line-height:1.5;">見積提出スピードと<br>提案力で、受注率向上</h2>
+      <p style="margin:16px 0 0;font-size:15px;font-weight:700;color:#2360D6;line-height:1.8;">→ 相見積りの失注を防ぎ、発注者の信頼を獲得</p>
+      <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>検体採取数の最小・最大を2分で算出し、競合より早く見積を提出</li>
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>建材のメーカー名・含有率・製造期間まで提示でき、説明の説得力が向上</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section id="feat-03" class="feat-row" style="scroll-margin-top:96px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+    <div class="feat-body" data-anim="left">
+      <div style="display:flex;align-items:baseline;gap:14px;">
+        <span class="mono" style="font-size:64px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">03</span>
+        <span class="mono" style="font-size:13px;font-weight:600;letter-spacing:0.12em;color:#24C39A;">EVIDENCE</span>
+      </div>
+      <h2 style="margin:16px 0 0;font-size:28px;font-weight:900;line-height:1.5;">確かな根拠をもとに、<br>判定を提示</h2>
+      <p style="margin:16px 0 0;font-size:15px;font-weight:700;color:#2360D6;line-height:1.8;">→ 「AIが言ったから」ではなく、裏付けを示せる調査に</p>
+      <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>国の石綿建材DB（44分類・2,151件）と自動照合</li>
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>メーカー資料・型番一覧まで遡って根拠を確認可能</li>
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>判定には確信度・リスクレベルを根拠とともに表示</li>
+      </ul>
+    </div>
+    <div class="feat-img om-card" data-anim="right" style="border-radius:16px;overflow:hidden;background:#F4F6FA;border:1px solid #E1E6EF;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:24px;">
+      <img src="assets/img-feat2-t.png" alt="確かな根拠のAI判定" style="max-width:100%;max-height:100%;object-fit:contain;">
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section id="feat-04" class="feat-row feat-blue" style="scroll-margin-top:96px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;background:#E4EEFC;border-radius:24px;padding:52px 48px;">
+    <div class="feat-img om-card" data-anim="right" style="order:2;border-radius:16px;overflow:hidden;background:#F4F6FA;border:1px solid #E1E6EF;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:24px;">
+      <img src="assets/img-pain5-t.png" alt="調査品質の標準化" style="max-width:100%;max-height:100%;object-fit:contain;">
+    </div>
+    <div class="feat-body" data-anim="left" style="order:1;">
+      <div style="display:flex;align-items:baseline;gap:14px;">
+        <span class="mono" style="font-size:64px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">04</span>
+        <span class="mono" style="font-size:13px;font-weight:600;letter-spacing:0.12em;color:#24C39A;">STANDARDIZE</span>
+      </div>
+      <h2 style="margin:16px 0 0;font-size:28px;font-weight:900;line-height:1.5;">担当者ごとの<br>調査品質のばらつきをなくす</h2>
+      <p style="margin:16px 0 0;font-size:15px;font-weight:700;color:#2360D6;line-height:1.8;">→ 調査品質の標準化を仕組みで実現し、安定した調査フローへ</p>
+      <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>図面と現況のズレをAIが補完し、見落としリスクを低減</li>
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>データベース照合で誰でも根拠ある判断が可能</li>
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>経験の浅い調査員もベテラン水準で対応できる</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section id="feat-05" class="feat-row" style="scroll-margin-top:96px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+    <div class="feat-body" data-anim="left">
+      <div style="display:flex;align-items:baseline;gap:14px;">
+        <span class="mono" style="font-size:64px;font-weight:700;line-height:1;background:linear-gradient(120deg,#0B3AA0,#2360D6 45%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">05</span>
+        <span class="mono" style="font-size:13px;font-weight:600;letter-spacing:0.12em;color:#24C39A;">ONE PLATFORM</span>
+      </div>
+      <h2 style="margin:16px 0 0;font-size:28px;font-weight:900;line-height:1.5;">図面解析〜行政報告まで、<br>1つのプラットフォームで完結</h2>
+      <p style="margin:16px 0 0;font-size:15px;font-weight:700;color:#2360D6;line-height:1.8;">→ 部分最適なツールの寄せ集めではなく、調査業務全体を効率化</p>
+      <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>図面解析 → 現地判定 → 分析 → 報告書を一気通貫で管理</li>
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>調査結果が報告書フォーマットへそのまま流れ込み、転記ミスもゼロに</li>
+        <li style="display:flex;gap:10px;font-size:14px;line-height:1.85;"><span style="color:#24C39A;font-weight:900;">✓</span>行政提出ドキュメント（電子申請用）も自動生成</li>
+      </ul>
+    </div>
+    <div class="feat-img om-card" data-anim="right" style="border-radius:16px;overflow:hidden;background:#F4F6FA;border:1px solid #E1E6EF;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:24px;">
+      <img src="assets/img-feat3-t.png" alt="一気通貫のプラットフォーム" style="max-width:100%;max-height:100%;object-fit:contain;">
+    </div>
+  </section>
+</div>
+
+<!-- ============ CTA ============ -->
+<div style="position:relative;overflow:hidden;background:linear-gradient(120deg,#0B3AA0,#2360D6 60%,#5A90EC);padding:72px 24px;margin-top:56px;">
+  <div style="position:absolute;inset:0;opacity:0.16;background:repeating-linear-gradient(135deg,rgba(255,255,255,0.4) 0 2px,transparent 2px 30px),radial-gradient(circle at 90% 120%,#fff 0 20%,transparent 21%);"></div>
+  <div class="cta-card" style="position:relative;background:#fff;border-radius:16px;max-width:760px;margin:0 auto;padding:44px 40px;text-align:center;" data-anim="up">
+    <p class="mono" style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.16em;color:#24C39A;">CONTACT</p>
+    <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#2360D6;line-height:1.5;">まずは、貴社の現場での効果を<br>ご確認ください。</h3>
+    <p style="margin:14px 0 0;font-size:14px;color:#4B5563;">30日間の無料トライアルで、実際の図面・写真でお試しいただけます。</p>
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:26px;flex-wrap:wrap;">
+      <a href="index.html#contact" class="om-cta" style="padding:15px 42px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:14px;font-weight:700;">お問い合わせ</a>
+      <a href="index.html#contact" class="om-cta om-cta-trial" style="padding:15px 42px;border-radius:999px;background:linear-gradient(90deg,#F6A21E,#E8620E);color:#fff;font-size:14px;font-weight:700;">無料トライアル</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ フッター ============ -->
+<footer>
+  <div style="background:#F4F6FA;border-top:1px solid #E1E6EF;padding:40px 44px;">
+    <div style="max-width:1120px;margin:0 auto;">
+      <p style="margin:0;font-size:15px;font-weight:900;color:#10315C;">アスベスト事前調査AI「Astro」</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:18px;">
+        <a href="#top" style="font-size:13px;color:#4B5563;">Astroの特長</a>
+        <a href="index.html#demo" style="font-size:13px;color:#4B5563;">デモ体験</a>
+        <a href="index.html#effect" style="font-size:13px;color:#4B5563;">導入効果・実績</a>
+        <a href="#" style="font-size:13px;color:#4B5563;">料金プラン</a>
+        <a href="#" style="font-size:13px;color:#4B5563;">導入の流れ</a>
+        <a href="#" style="font-size:13px;color:#4B5563;">よくあるご質問</a>
+        <a href="#" style="font-size:13px;color:#4B5563;">資料ダウンロード</a>
+        <a href="index.html#contact" style="font-size:13px;color:#4B5563;">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+  <div style="background:#0B2340;padding:24px 44px;">
+    <div style="max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <span class="mono" style="font-size:20px;font-weight:600;color:#fff;letter-spacing:0.02em;">Astro</span>
+      <span style="font-size:12px;color:#9DB2CE;">No reproduction without permission.</span>
+      <div style="display:flex;gap:22px;margin-left:auto;flex-wrap:wrap;">
+        <a href="#" style="font-size:12px;color:#9DB2CE;">個人情報の取り扱い ↗</a>
+        <a href="#" style="font-size:12px;color:#9DB2CE;">会社情報 ↗</a>
+        <a href="#" style="font-size:12px;color:#9DB2CE;">利用規約 ↗</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('om-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
