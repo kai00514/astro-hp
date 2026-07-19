@@ -14,6 +14,7 @@ body{margin:0;font-family:'Noto Sans JP',sans-serif;color:#10315C;background:#ff
 a{color:#2360D6;text-decoration:none;}a:hover{color:#0B3AA0;}
 .mono{font-family:'Barlow',sans-serif;}
 html{scroll-behavior:smooth;}
+html,body{overflow-x:hidden;}
 img{max-width:100%;}
 @keyframes heroReveal{0%{opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-14px);}60%{opacity:1;}100%{opacity:1;clip-path:inset(0 0 0 0);transform:translateX(0);}}
 @keyframes heroFade{from{opacity:0;}to{opacity:1;}}
@@ -37,26 +38,51 @@ a[href]:hover{opacity:0.92;}
 .om-card{transition:transform .35s ease,box-shadow .35s ease;}
 .om-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,43,83,0.16)!important;}
 
-/* ===== Responsive (mobile) ===== */
-@media (max-width:860px){
+/* ===== Responsive: tablet ===== */
+@media (max-width:900px){
   .site-nav{display:none!important;}
-  .hero-inner{padding:150px 20px 110px!important;}
-  .hero-title{font-size:32px!important;}
-  .hero-lead{font-size:16px!important;text-align:left!important;}
   .intro-grid{grid-template-columns:1fr!important;gap:32px!important;}
-  .intro-grid h2{font-size:28px!important;}
-  .feat-cards{grid-template-columns:repeat(2,1fr)!important;}
-  .feat-list{padding:64px 20px 24px!important;gap:64px!important;}
+  .feat-cards{grid-template-columns:repeat(3,1fr)!important;}
   .feat-row{grid-template-columns:1fr!important;gap:28px!important;}
   .feat-row .feat-img{order:2!important;}
   .feat-row .feat-body{order:1!important;}
-  .feat-row h2{font-size:23px!important;}
-  .feat-blue{padding:32px 22px!important;border-radius:18px!important;}
-  .cta-card{padding:36px 22px!important;}
-  .cta-card h3{font-size:22px!important;}
 }
-@media (max-width:460px){
-  .feat-cards{grid-template-columns:1fr!important;}
+
+/* ===== Responsive: phone ===== */
+@media (max-width:640px){
+  /* header: keep only the trial CTA */
+  .hdr-inquiry,.hdr-login{display:none!important;}
+
+  /* hero */
+  .hero-inner{padding:120px 18px 84px!important;}
+  .hero-title{font-size:26px!important;}
+  .hero-title span{padding:8px 14px!important;}
+  .hero-lead{font-size:15px!important;line-height:1.9!important;text-align:left!important;}
+
+  /* intro */
+  .intro-grid{gap:26px!important;}
+  .intro-grid h2{font-size:26px!important;}
+
+  /* nav cards: 1 column */
+  .feat-cards{grid-template-columns:1fr!important;gap:12px!important;}
+  .feat-cards a{flex-direction:row!important;justify-content:center!important;gap:12px!important;padding:16px 18px!important;}
+  .feat-cards a>span:first-child{font-size:24px!important;}
+  .feat-cards a>span:nth-child(2){text-align:left!important;}
+  .feat-cards a>span:last-child{display:none!important;}
+
+  /* feature rows */
+  .feat-list{padding:56px 18px 24px!important;gap:64px!important;}
+  .feat-row{gap:26px!important;}
+  .feat-row h2{font-size:22px!important;}
+  .feat-blue{padding:30px 20px!important;border-radius:18px!important;}
+
+  /* CTA */
+  .cta-card{padding:34px 20px!important;}
+  .cta-card h3{font-size:21px!important;}
+  .cta-card a{width:100%!important;box-sizing:border-box!important;text-align:center!important;}
+
+  /* footer */
+  footer>div{padding:32px 20px!important;}
 }
 </style>
 </head>
@@ -75,9 +101,9 @@ a[href]:hover{opacity:0.92;}
         <a href="index.html#effect" style="color:#10315C;white-space:nowrap;">導入効果</a>
       </nav>
       <div style="display:flex;gap:8px;align-items:center;flex:none;">
-        <a href="index.html#contact" style="padding:11px 15px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">お問い合わせ</a>
+        <a href="index.html#contact" class="hdr-inquiry" style="padding:11px 15px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">お問い合わせ</a>
         <a href="index.html#contact" class="om-cta om-cta-trial" style="padding:11px 15px;border-radius:999px;background:linear-gradient(90deg,#F6A21E,#E8620E);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">無料トライアル</a>
-        <a href="#" style="font-size:12px;font-weight:700;color:#7A879B;margin:0 4px;white-space:nowrap;">ログイン</a>
+        <a href="#" class="hdr-login" style="font-size:12px;font-weight:700;color:#7A879B;margin:0 4px;white-space:nowrap;">ログイン</a>
       </div>
     </div>
   </div>
