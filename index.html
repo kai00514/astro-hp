@@ -74,6 +74,25 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 @media (prefers-reduced-motion:reduce){.demo-frame,.demo-frame.on,.demo-frame.out{transition:opacity .01s;transform:none;}
   .demo-frame.pan.on img{animation:none;object-position:center top;}}
 
+/* functions grid (機能一覧) */
+.func-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px;}
+.func-card{background:#fff;border-radius:6px;padding:34px 22px 30px;text-align:center;}
+.func-ic{position:relative;width:94px;height:94px;margin:0 auto;border-radius:50%;background:#fff;box-shadow:0 0 0 9px #EDF4FF,0 10px 24px rgba(11,43,83,0.08);display:flex;align-items:center;justify-content:center;}
+.func-ic .sp1,.func-ic .sp2,.func-ic .sp3{position:absolute;font-size:15px;font-weight:900;color:#8FC4F4;line-height:1;}
+.func-ic .sp1{top:-16px;left:-14px;}
+.func-ic .sp2{top:-10px;right:-18px;color:#BBD9F5;}
+.func-ic .sp3{bottom:-14px;right:-8px;}
+.func-card h3{margin:24px 0 0;font-size:16px;font-weight:900;color:#10315C;}
+.func-card p{margin:10px 0 0;font-size:12.5px;font-weight:500;line-height:1.9;color:#4B5563;text-align:left;}
+@media (max-width:900px){.func-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.func-grid{gap:10px;}.func-card{padding:22px 14px 20px;}.func-ic{width:78px;height:78px;box-shadow:0 0 0 7px #EDF4FF,0 8px 18px rgba(11,43,83,0.08);}.func-ic svg{width:36px;height:36px;}.func-card h3{font-size:14px;margin-top:18px;}.func-card p{font-size:11.5px;line-height:1.8;}}
+/* all-in-one detail rows */
+.aio-row{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;}
+.aio-row+.aio-row{margin-top:72px;}
+.aio-row.rev>div:first-child{order:2;}
+.aio-ph{aspect-ratio:16/10;border-radius:12px;overflow:hidden;border:1px solid #D8E2F1;box-shadow:0 14px 36px rgba(11,43,83,0.10);}
+@media (max-width:900px){.aio-row{grid-template-columns:1fr;gap:22px;}.aio-row.rev>div:first-child{order:0;}.aio-row+.aio-row{margin-top:52px;}}
+
 /* contact mode buttons */
 .contact-btn{padding:18px 20px;border-radius:12px;cursor:pointer;text-align:center;font-family:inherit;line-height:1.3;transition:all .3s cubic-bezier(.22,.61,.36,1);border:2px solid #D8E2F1;background:#F7F9FC;color:#7A879B;transform:translateY(0);}
 .contact-btn.active{border:2px solid transparent;color:#fff;transform:translateY(-3px);}
@@ -124,21 +143,21 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   .hdr-menu.open{display:flex!important;}
 
   /* hero: title bigger, sub slightly smaller, order = title > sub > screen > CTA */
-  .hero-grid{display:flex!important;flex-direction:column!important;padding:96px 18px 64px!important;gap:18px!important;}
+  .hero-grid{display:flex!important;flex-direction:column!important;align-items:flex-start!important;padding:96px 18px 64px!important;gap:18px!important;}
   .hero-left{display:contents!important;}
   .hero-img-wrap{order:1!important;margin:4px auto 0!important;max-width:100%!important;width:100%!important;position:relative!important;padding-bottom:0!important;}
   .hero-cta-card{order:2!important;}
-  .hero-grid h1{font-size:28px!important;}
-  .hero-grid h1 span{white-space:normal!important;padding:8px 14px!important;}
-  .hero-sub{margin-top:12px!important;}
-  .hero-sub span[style*="font-size:22px"]{font-size:19px!important;}
-  .hero-sub span[style*="font-size:15px"]{font-size:13px!important;}
+  .hero-grid h1{font-size:clamp(29px,calc((100vw - 56px)/10),33px)!important;}
+  .hero-grid h1 span{white-space:nowrap!important;padding:8px 10px!important;}
+  .hero-sub{margin-top:12px!important;margin-left:10px!important;line-height:1.8!important;}
+  .hero-sub span[style*="font-size:22px"]{font-size:clamp(20px,5.6vw,22px)!important;}
+  .hero-sub span[style*="font-size:15px"]{font-size:clamp(13px,3.7vw,15px)!important;}
   /* show PC + phone side by side like the desktop composition */
   .hero-img-wrap>div:first-child{margin:0 0 0 auto!important;width:82%!important;padding:8px!important;border-radius:12px!important;}
   .hero-img-wrap>div:last-child{display:block!important;position:absolute!important;left:0!important;bottom:-14px!important;width:31%!important;padding:5px!important;border-radius:16px!important;}
   .hero-img-wrap>div:last-child>div:first-child{width:30px!important;height:3px!important;top:10px!important;}
   .hero-img-wrap>div:last-child>div:last-child{height:auto!important;aspect-ratio:158/281!important;border-radius:12px!important;}
-  .hero-cta-card{display:flex!important;width:100%!important;padding:18px 16px!important;box-sizing:border-box!important;}
+  .hero-cta-card{display:flex!important;width:100%!important;padding:18px 10px!important;box-sizing:border-box!important;}
   .hero-cta-cols{flex-direction:column!important;gap:12px!important;width:100%!important;}
   .hero-cta-cols>div{flex:1!important;width:100%!important;}
   .hero-cta-cols a{padding:12px 10px!important;width:100%!important;box-sizing:border-box!important;text-align:center!important;font-size:14px!important;white-space:nowrap!important;}
@@ -243,6 +262,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
         <a href="features.html" style="color:#10315C;white-space:nowrap;">Astroの特徴</a>
         <a href="#demo" style="color:#10315C;white-space:nowrap;">デモ体験</a>
         <a href="#effect" style="color:#10315C;white-space:nowrap;">導入効果</a>
+        <a href="#functions" style="color:#10315C;white-space:nowrap;">機能</a>
       </nav>
       <div style="display:flex;gap:8px;align-items:center;flex:none;">
         <a href="#contact" class="hdr-inquiry" style="padding:11px 15px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">お問い合わせ</a>
@@ -258,6 +278,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
         <a href="features.html" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#10315C;">Astroの特徴</a>
         <a href="#demo" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#10315C;">デモ体験</a>
         <a href="#effect" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#10315C;">導入効果</a>
+        <a href="#functions" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#10315C;">機能</a>
         <a href="#" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#7A879B;">ログイン</a>
         <div style="display:flex;gap:8px;margin-top:6px;">
           <a href="#contact" style="flex:1;text-align:center;padding:12px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:13px;font-weight:700;">お問い合わせ</a>
@@ -494,14 +515,14 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 </div>
 
 <!-- ============ 解決ブリッジ ============ -->
-<div class="bridge-sec" style="background:#EAF1FF;clip-path:polygon(0 0,100% 0,100% calc(100% - 72px),50% 100%,0 calc(100% - 72px));padding:88px 32px 150px;">
+<div class="bridge-sec" style="background:#EAF1FF;clip-path:polygon(0 0,100% 0,100% calc(100% - 72px),50% 100%,0 calc(100% - 72px));padding:24px 32px 74px;">
   <div style="max-width:1120px;margin:0 auto;text-align:center;" data-anim="up">
     <p style="margin:0;font-size:26px;font-weight:700;color:#10315C;">これらの課題を</p>
     <div class="bridge-title" style="display:inline-block;">
-      <h2 style="margin:14px 0 0;font-size:44px;font-weight:900;line-height:1.4;color:#10315C;"><span style="font-size:58px;background:linear-gradient(90deg,#0B3AA0,#2360D6 45%,#24C39A);-webkit-background-clip:text;background-clip:text;color:transparent;">Astro AI</span>で<span style="font-size:58px;background:linear-gradient(90deg,#0B3AA0,#2360D6 45%,#24C39A);-webkit-background-clip:text;background-clip:text;color:transparent;">驚くほど簡単</span>に</h2>
-      <div style="width:100%;height:16px;margin:22px 0 0;background:linear-gradient(90deg,#0B3AA0,#2360D6 45%,#24C39A);"></div>
+      <h2 style="margin:6px 0 0;font-size:44px;font-weight:900;line-height:1.4;color:#10315C;"><span style="font-size:58px;background:linear-gradient(90deg,#0B3AA0,#2360D6 45%,#24C39A);-webkit-background-clip:text;background-clip:text;color:transparent;">Astro AI</span>で<span style="font-size:58px;background:linear-gradient(90deg,#0B3AA0,#2360D6 45%,#24C39A);-webkit-background-clip:text;background-clip:text;color:transparent;">驚くほど簡単</span>に</h2>
+      <div style="width:100%;height:16px;margin:10px 0 0;background:linear-gradient(90deg,#0B3AA0,#2360D6 45%,#24C39A);"></div>
     </div>
-    <div style="width:520px;max-width:100%;margin:48px auto 0;">
+    <div style="width:400px;max-width:100%;margin:10px auto 0;">
       <img src="assets/img-bridge-t.png" alt="PCを囲むチーム" style="width:100%;height:auto;display:block;">
     </div>
   </div>
@@ -632,6 +653,171 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 機能一覧 ============ -->
+<section id="functions" style="background:#EDF4FE;padding:88px 24px 96px;">
+  <div style="max-width:1160px;margin:0 auto;">
+    <div data-anim="up" style="text-align:center;">
+      <p style="margin:0;font-size:22px;font-weight:900;color:#2360D6;"><ruby style="ruby-position:over;">石綿<rt style="font-size:10px;font-weight:700;color:#2360D6;">アスベスト</rt></ruby>事前調査の業務がまるっと完了！</p>
+      <h2 style="margin:14px 0 0;font-size:40px;font-weight:900;color:#10315C;">機能一覧</h2>
+    </div>
+    <div class="func-grid" data-anim="up">
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;background:#4A90D9;color:#fff;font-size:14px;font-weight:900;">Gビズ</span></div>
+        <h3>Gビズ完全対応</h3>
+        <p>行政への事前調査結果の電子報告（Gビズ）に対応。申請用CSVのアップロードだけで完了</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#24C39A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"/><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"/></svg></div>
+        <h3>工事情報複製機能</h3>
+        <p>工事情報の複製ができるので、マンションやビル等の同現場工事に便利</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E45865" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.871l-8.106 -13.534a1.914 1.914 0 0 0 -3.274 0z"/><path d="M12 16h.01"/></svg></div>
+        <h3>抜け漏れアラート機能</h3>
+        <p>入力漏れがあった場合アラートが出るので、誰でも正確な書類作成が可能</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2360D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"/><path d="M9 15l3 -3l3 3"/><path d="M12 12l0 9"/></svg></div>
+        <h3>下書き保存機能</h3>
+        <p>急なトラブルでも下書き保存機能を使えば、後から編集・追加が可能</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F6A21E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></div>
+        <h3>看板自動作成機能</h3>
+        <p>工事情報を入力するだけで、法令対応に必要な項目が揃った看板を自動作成</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2360D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"/><path d="M11 4h2"/><path d="M12 17v.01"/></svg></div>
+        <h3>スマホ・タブレット対応</h3>
+        <p>スマホ操作が可能なので、現場からでも情報の入力・編集・確認が可能</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E45865" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8h.01"/><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"/><path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5"/><path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3"/></svg></div>
+        <h3>写真・PDF登録可能</h3>
+        <p>法令対応に必要な現場の写真や、図面等のPDFが工事毎に保管可能</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#10315C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5l1.5 1.5l2.5 -2.5"/><path d="M3.5 11.5l1.5 1.5l2.5 -2.5"/><path d="M3.5 17.5l1.5 1.5l2.5 -2.5"/><path d="M11 6l9 0"/><path d="M11 12l9 0"/><path d="M11 18l9 0"/></svg></div>
+        <h3>事前調査結果一覧</h3>
+        <p>申請前に、工事毎の事前調査結果が一覧で確認可能。申請の抜け漏れを防止</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#10315C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg></div>
+        <h3>本社管理機能</h3>
+        <p>複数支店が登録した工事情報の内容や登録・申請の進捗を一元管理可能</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#24C39A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></div>
+        <h3>下請け登録機能</h3>
+        <p>書類に必要な下請け業者の情報を事前に登録。選択するだけで紐付け完了</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2360D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 6l6 0"/><path d="M16 6l4 0"/><path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 12l2 0"/><path d="M10 12l10 0"/><path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 18l11 0"/><path d="M19 18l1 0"/></svg></div>
+        <h3>入力コスト徹底カット</h3>
+        <p>同一の内容は選択式となっており、選ぶだけの簡単入力が可能</p>
+      </div>
+      <div class="func-card">
+        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F6A21E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 20l14 0"/></svg></div>
+        <h3>一目でわかる進捗管理</h3>
+        <p>石綿の管理業務に必要な情報が一覧表示されるため、ラクラク進捗管理</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ オールインワン詳細 ============ -->
+<section id="allinone" style="background:#fff;padding:96px 24px 104px;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <div data-anim="up" style="text-align:center;">
+      <p style="margin:0;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;background:linear-gradient(90deg,#0E8C6E 0%,#1B6FE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Astroでできること</p>
+      <h2 style="margin:12px 0 0;font-size:40px;font-weight:900;line-height:1.4;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;">アスベスト事前調査を<br class="sp-br">オールインワンで管理</h2>
+    </div>
+    <div style="margin-top:72px;">
+
+      <div class="aio-row" data-anim="up">
+        <div>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">01<span style="margin-left:10px;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.04em;color:#7A879B;">電子報告</span></p>
+          <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#10315C;">GビズID完全対応</h3>
+          <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">申請用CSVをGビズにアップロードするだけ。すぐに完了。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#4B5563;">Astroが出力する申請用CSVは、行政の電子報告（GビズID）の様式に対応。作成した報告内容をそのままアップロードするだけで、事前調査結果の報告がすぐに完了します。様式の転記作業はもう必要ありません。</p>
+        </div>
+        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Gビズ報告フローのイラスト（差し替え）</span></div></div>
+      </div>
+
+      <div class="aio-row rev" data-anim="up">
+        <div>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">02<span style="margin-left:10px;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.04em;color:#7A879B;">工事管理</span></p>
+          <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#10315C;">現場・工事単位の一元管理</h3>
+          <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">図面・写真・解析結果・報告書類を、工事ごとにまとめて管理。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#4B5563;">案件ごとに調査に関わる資料と結果を集約。複数現場の進捗も一覧で把握でき、担当者間の引き継ぎや本社からの確認もスムーズです。</p>
+        </div>
+        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>工事管理画面のイラスト（差し替え）</span></div></div>
+      </div>
+
+      <div class="aio-row" data-anim="up">
+        <div>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">03<span style="margin-left:10px;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.04em;color:#7A879B;">図面解析AI</span></p>
+          <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#10315C;">Zumiru<span style="margin-left:10px;font-size:15px;color:#7A879B;">ズミル</span></h3>
+          <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">図面PDFから建材を自動抽出し、石綿DBと照合。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#4B5563;">仕上表などの図面PDFをアップロードするだけで、AIが建材を拾い出し、石綿含有建材データベースと自動照合。メーカー情報まで統合し、石綿採取計画表のExcel出力まで一気通貫で行えます。</p>
+        </div>
+        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Zumiru 解析画面のイラスト（差し替え）</span></div></div>
+      </div>
+
+      <div class="aio-row rev" data-anim="up">
+        <div>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">04<span style="margin-left:10px;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.04em;color:#7A879B;">写真判定AI</span></p>
+          <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#10315C;">Asmiru<span style="margin-left:10px;font-size:15px;color:#7A879B;">アスミル</span></h3>
+          <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">現場写真から、石綿含有のおそれをその場で判定。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#4B5563;">スマホで撮影した建材の断面写真をアップロードすると、独自AIが石綿含有のおそれを判定（建材スクリーニング）。分析機関に出す検体の絞り込みに役立ち、分析費用の削減につながります。</p>
+        </div>
+        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Asmiru 判定画面のイラスト（差し替え）</span></div></div>
+      </div>
+
+      <div class="aio-row" data-anim="up">
+        <div>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">05<span style="margin-left:10px;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.04em;color:#7A879B;">型番検索</span></p>
+          <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#10315C;">Katamiru<span style="margin-left:10px;font-size:15px;color:#7A879B;">カタミル</span></h3>
+          <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">建材の型番から、メーカー資料を即表示。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#4B5563;">図面や現場で確認した型番を入力するだけで、該当するメーカー資料をすぐに表示。目視調査中の建材特定を高速化し、判定の根拠資料もその場で揃います。</p>
+        </div>
+        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Katamiru 検索画面のイラスト（差し替え）</span></div></div>
+      </div>
+
+      <div class="aio-row rev" data-anim="up">
+        <div>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">06<span style="margin-left:10px;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.04em;color:#7A879B;">報告書作成AI</span></p>
+          <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#10315C;">Hokumiru<span style="margin-left:10px;font-size:15px;color:#7A879B;">ホクミル</span></h3>
+          <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">調査結果から、国の報告様式と申請用CSVを自動作成。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#4B5563;">図面や調査結果を取り込むと、AIが報告様式の記載内容を候補として提示。問題なければ一括反映、不足情報はチャットで補足するだけで、行政報告資料と申請用CSVが完成します。</p>
+        </div>
+        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Hokumiru 作成画面のイラスト（差し替え）</span></div></div>
+      </div>
+
+      <div class="aio-row" data-anim="up">
+        <div>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">07<span style="margin-left:10px;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.04em;color:#7A879B;">分析機関検索</span></p>
+          <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#10315C;">アスベスト分析機関検索</h3>
+          <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">検体の分析先を、地域や条件からすぐに探せる。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#4B5563;">検体の定性・定量分析を依頼できる分析機関を、地域や対応条件から検索。調査から分析依頼までの流れがAstroの中で完結します。</p>
+        </div>
+        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>分析機関検索画面のイラスト（差し替え）</span></div></div>
+      </div>
+
+      <div class="aio-row rev" data-anim="up">
+        <div>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">08<span style="margin-left:10px;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.04em;color:#7A879B;">データベース検索</span></p>
+          <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#10315C;">石綿含有建材データベース検索</h3>
+          <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">国の石綿DB 44分類・2,151件を横断検索。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#4B5563;">建材名・メーカー名などから国の石綿含有建材データベースを検索。含有率や製造期間といった判定の根拠となる情報を、その場で確認できます。</p>
+        </div>
+        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>石綿DB検索画面のイラスト（差し替え）</span></div></div>
+      </div>
+
     </div>
   </div>
 </section>
