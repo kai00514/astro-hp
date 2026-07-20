@@ -54,6 +54,17 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 .demo-panel{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .25s ease;}
 .demo-panel.active{opacity:1;pointer-events:auto;}
 
+/* demo slideshow (書面調査: 6 frames) */
+.demo-seq{position:absolute;inset:0;background:#fff;}
+.demo-frame{position:absolute;inset:0;opacity:0;transform:scale(1.015);transition:opacity .55s ease,transform .55s ease;pointer-events:none;}
+.demo-frame.on{opacity:1;transform:scale(1);}
+/* contain = never crop or distort, whatever the source ratio */
+.demo-frame img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;}
+.demo-dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(14,35,64,0.42);backdrop-filter:blur(4px);z-index:3;}
+.demo-dot{width:7px;height:7px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,0.45);transition:background .25s ease,width .25s ease;}
+.demo-dot.on{background:#fff;width:18px;border-radius:999px;}
+@media (prefers-reduced-motion:reduce){.demo-frame{transition:opacity .01s;transform:none;}}
+
 /* contact mode buttons */
 .contact-btn{padding:18px 20px;border-radius:12px;cursor:pointer;text-align:center;font-family:inherit;line-height:1.3;transition:all .3s cubic-bezier(.22,.61,.36,1);border:2px solid #D8E2F1;background:#F7F9FC;color:#7A879B;transform:translateY(0);}
 .contact-btn.active{border:2px solid transparent;color:#fff;transform:translateY(-3px);}
@@ -143,7 +154,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   #demo-tabs{display:flex!important;flex-wrap:wrap!important;max-width:100%!important;padding:6px!important;gap:6px!important;box-sizing:border-box!important;border-radius:12px!important;margin:20px 0 12px!important;}
   .demo-tab{padding:9px 14px!important;font-size:12px!important;border-radius:8px!important;}
   .demo-tab[data-idx="3"],.demo-tab[data-idx="4"]{display:none!important;}
-  .demo-stage{aspect-ratio:3/2!important;}
+  .demo-stage{aspect-ratio:2096/1648!important;}
   .demo-reserve{display:none!important;}
   #demo a.om-cta{padding:13px 20px!important;font-size:13px!important;box-sizing:border-box!important;text-align:center!important;}
 
@@ -360,8 +371,18 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
         <span style="margin-left:14px;font-family:'Barlow',sans-serif;font-size:12px;color:#9DB4D8;">app.astro.jp ｜ <span id="demo-url-label">書面調査</span></span>
       </div>
       <div style="border:1px solid #D8E2F1;border-top:none;border-radius:0 0 16px 16px;background:#fff;padding:10px;box-shadow:0 24px 60px rgba(11,43,83,0.16);">
-        <div class="demo-stage" style="position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#EAF1FF;">
-          <div class="demo-panel active" data-idx="0"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Zumiru 図面解析の操作画面</span></div></div>
+        <div class="demo-stage" style="position:relative;aspect-ratio:2096/1648;border-radius:8px;overflow:hidden;background:#EAF1FF;">
+          <div class="demo-panel active" data-idx="0">
+            <div class="demo-seq" id="demo-seq">
+              <div class="demo-frame on" data-f="0"><img src="assets/demo-doc-1.png" alt="図面資料をアップロード" loading="lazy" decoding="async"></div>
+              <div class="demo-frame" data-f="1"><img src="assets/demo-doc-2.png" alt="AIが建材を抽出" loading="lazy" decoding="async"></div>
+              <div class="demo-frame" data-f="2"><img src="assets/demo-doc-3.png" alt="石綿含有建材DBと照合" loading="lazy" decoding="async"></div>
+              <div class="demo-frame" data-f="3"><img src="assets/demo-doc-4.png" alt="メーカー情報を統合" loading="lazy" decoding="async"></div>
+              <div class="demo-frame" data-f="4"><img src="assets/demo-doc-5.png" alt="解析結果を表示" loading="lazy" decoding="async"></div>
+              <div class="demo-frame" data-f="5"><img src="assets/demo-doc-6.png" alt="石綿採取計画表をエクセル出力" loading="lazy" decoding="async"></div>
+              <div class="demo-dots" id="demo-dots"></div>
+            </div>
+          </div>
           <div class="demo-panel" data-idx="1"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Asmiru 写真判定の操作画面</span></div></div>
           <div class="demo-panel" data-idx="2"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Hokumiru 報告書作成の操作画面</span></div></div>
           <div class="demo-panel" data-idx="3"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>建材データベース検索の操作画面</span></div></div>
@@ -767,34 +788,103 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   var urlLabel = document.getElementById('demo-url-label');
   var stepEl = document.getElementById('demo-step');
   var capEl = document.getElementById('demo-caption');
-  var playing = false;
-  function setPlaying(v) {
-    playing = v;
-    var icon = document.getElementById('demo-play-icon');
-    var btn = document.getElementById('demo-play');
-    var prog = document.getElementById('demo-progress');
-    if (playing) {
-      btn.style.background = 'rgba(16,49,92,0.72)';
-      icon.style.cssText = 'width:16px;height:16px;border-left:5px solid #fff;border-right:5px solid #fff;box-sizing:border-box;';
-      prog.style.width = '64%';
-    } else {
-      btn.style.background = 'rgba(35,96,214,0.94)';
-      icon.style.cssText = 'border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px;';
-      prog.style.width = '30%';
+  var progEl = document.getElementById('demo-progress');
+
+  /* ---- 書面調査: 6-frame slideshow ---- */
+  var docCaptions = [
+    'まずは図面資料をアップロードしてみましょう。',
+    '図面から建材をAIが自動で抽出します。',
+    '抽出した建材を石綿含有建材データベースと照合します。',
+    'メーカー情報を統合し、建材ごとの情報を揃えます。',
+    '解析が完了し、建材ごとの石綿含有可能性を表示できました。',
+    '最後に石綿採取計画表をエクセル出力できます。'
+  ];
+  var frames = document.querySelectorAll('#demo-seq .demo-frame');
+  var dotsWrap = document.getElementById('demo-dots');
+  var FRAME_MS = 2600;
+  var cur = 0, timer = null, playing = false, activeTab = 0;
+
+  var dots = [];
+  frames.forEach(function (f, i) {
+    var d = document.createElement('button');
+    d.className = 'demo-dot' + (i === 0 ? ' on' : '');
+    d.type = 'button';
+    d.setAttribute('aria-label', (i + 1) + '枚目を表示');
+    d.addEventListener('click', function () { stop(); show(i); });
+    dotsWrap.appendChild(d);
+    dots.push(d);
+  });
+
+  function show(i) {
+    cur = (i + frames.length) % frames.length;
+    frames.forEach(function (f, k) { f.classList.toggle('on', k === cur); });
+    dots.forEach(function (d, k) { d.classList.toggle('on', k === cur); });
+    // caption + step follow the frame only while 書面調査 is selected
+    if (activeTab === 0) {
+      stepEl.textContent = 'STEP ' + (cur + 1);
+      capEl.textContent = docCaptions[cur];
+      progEl.style.width = ((cur + 1) / frames.length * 100).toFixed(1) + '%';
     }
   }
+  function paintPlayBtn() {
+    var icon = document.getElementById('demo-play-icon');
+    var btn = document.getElementById('demo-play');
+    if (playing) {
+      btn.style.background = 'rgba(16,49,92,0.55)';
+      btn.style.opacity = '0';
+      icon.style.cssText = 'width:16px;height:16px;border-left:5px solid #fff;border-right:5px solid #fff;box-sizing:border-box;';
+    } else {
+      btn.style.background = 'rgba(35,96,214,0.94)';
+      btn.style.opacity = '1';
+      icon.style.cssText = 'border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px;';
+    }
+  }
+  function play() {
+    if (playing || activeTab !== 0) return;
+    playing = true; paintPlayBtn();
+    timer = setInterval(function () { show(cur + 1); }, FRAME_MS);
+  }
+  function stop() {
+    playing = false;
+    if (timer) { clearInterval(timer); timer = null; }
+    paintPlayBtn();
+  }
+
   function selectTab(i) {
+    activeTab = i;
     tabs.forEach(function (t, k) { t.classList.toggle('active', k === i); });
     panels.forEach(function (p, k) { p.classList.toggle('active', k === i); });
     urlLabel.textContent = labels[i];
-    stepEl.textContent = steps[i];
-    capEl.textContent = captions[i];
-    setPlaying(false);
+    stop();
+    if (i === 0) {
+      show(0);
+      play();
+    } else {
+      stepEl.textContent = steps[i];
+      capEl.textContent = captions[i];
+      progEl.style.width = '30%';
+    }
   }
   tabs.forEach(function (t) {
     t.addEventListener('click', function () { selectTab(parseInt(t.getAttribute('data-idx'), 10)); });
   });
-  document.getElementById('demo-play').addEventListener('click', function () { setPlaying(!playing); });
+  document.getElementById('demo-play').addEventListener('click', function () {
+    if (activeTab !== 0) return;
+    playing ? stop() : play();
+  });
+
+  // autoplay only while the demo is on screen, and respect reduced-motion
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var demoSec = document.getElementById('demo');
+  if (demoSec && !reduce) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { if (activeTab === 0) play(); }
+        else stop();
+      });
+    }, { threshold: 0.35 }).observe(demoSec);
+  }
+  show(0);
 
   /* ---- contact mode toggle ---- */
   document.querySelectorAll('.contact-btn').forEach(function (b) {
