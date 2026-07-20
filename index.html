@@ -56,14 +56,15 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 
 /* demo slideshow (書面調査: 6 frames) */
 .demo-seq{position:absolute;inset:0;background:#fff;}
-.demo-frame{position:absolute;inset:0;opacity:0;transform:scale(1.015);transition:opacity .55s ease,transform .55s ease;pointer-events:none;}
-.demo-frame.on{opacity:1;transform:scale(1);}
-/* contain = never crop or distort, whatever the source ratio */
-.demo-frame img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;}
+.demo-frame{position:absolute;inset:0;opacity:0;transform:translateX(14px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);pointer-events:none;}
+.demo-frame.on{opacity:1;transform:translateX(0);z-index:2;}
+.demo-frame.out{opacity:0;transform:translateX(-14px);z-index:1;}
+/* cover = fill the frame edge to edge, no letterbox */
+.demo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
 .demo-dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(14,35,64,0.42);backdrop-filter:blur(4px);z-index:3;}
 .demo-dot{width:7px;height:7px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,0.45);transition:background .25s ease,width .25s ease;}
 .demo-dot.on{background:#fff;width:18px;border-radius:999px;}
-@media (prefers-reduced-motion:reduce){.demo-frame{transition:opacity .01s;transform:none;}}
+@media (prefers-reduced-motion:reduce){.demo-frame,.demo-frame.on,.demo-frame.out{transition:opacity .01s;transform:none;}}
 
 /* contact mode buttons */
 .contact-btn{padding:18px 20px;border-radius:12px;cursor:pointer;text-align:center;font-family:inherit;line-height:1.3;transition:all .3s cubic-bezier(.22,.61,.36,1);border:2px solid #D8E2F1;background:#F7F9FC;color:#7A879B;transform:translateY(0);}
@@ -154,7 +155,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   #demo-tabs{display:flex!important;flex-wrap:wrap!important;max-width:100%!important;padding:6px!important;gap:6px!important;box-sizing:border-box!important;border-radius:12px!important;margin:20px 0 12px!important;}
   .demo-tab{padding:9px 14px!important;font-size:12px!important;border-radius:8px!important;}
   .demo-tab[data-idx="3"],.demo-tab[data-idx="4"]{display:none!important;}
-  .demo-stage{aspect-ratio:2096/1648!important;}
+  .demo-stage{aspect-ratio:12/10!important;}
   .demo-reserve{display:none!important;}
   #demo a.om-cta{padding:13px 20px!important;font-size:13px!important;box-sizing:border-box!important;text-align:center!important;}
 
@@ -371,7 +372,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
         <span style="margin-left:14px;font-family:'Barlow',sans-serif;font-size:12px;color:#9DB4D8;">app.astro.jp ｜ <span id="demo-url-label">書面調査</span></span>
       </div>
       <div style="border:1px solid #D8E2F1;border-top:none;border-radius:0 0 16px 16px;background:#fff;padding:10px;box-shadow:0 24px 60px rgba(11,43,83,0.16);">
-        <div class="demo-stage" style="position:relative;aspect-ratio:2096/1648;border-radius:8px;overflow:hidden;background:#EAF1FF;">
+        <div class="demo-stage" style="position:relative;aspect-ratio:12/10;border-radius:8px;overflow:hidden;background:#EAF1FF;">
           <div class="demo-panel active" data-idx="0">
             <div class="demo-seq" id="demo-seq">
               <div class="demo-frame on" data-f="0"><img src="assets/demo-doc-1.png" alt="図面資料をアップロード" loading="lazy" decoding="async"></div>
@@ -801,7 +802,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   ];
   var frames = document.querySelectorAll('#demo-seq .demo-frame');
   var dotsWrap = document.getElementById('demo-dots');
-  var FRAME_MS = 2600;
+  var FRAME_MS = 5000;
   var cur = 0, timer = null, playing = false, activeTab = 0;
 
   var dots = [];
@@ -816,15 +817,24 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   });
 
   function show(i) {
+    var prev = cur;
     cur = (i + frames.length) % frames.length;
-    frames.forEach(function (f, k) { f.classList.toggle('on', k === cur); });
+    frames.forEach(function (f, k) {
+      // outgoing frame slides out, so the two never cross-dissolve into mush
+      f.classList.toggle('out', k === prev && prev !== cur);
+      f.classList.toggle('on', k === cur);
+    });
     dots.forEach(function (d, k) { d.classList.toggle('on', k === cur); });
-    // caption + step follow the frame only while 書面調査 is selected
-    if (activeTab === 0) {
-      stepEl.textContent = 'STEP ' + (cur + 1);
-      capEl.textContent = docCaptions[cur];
-      progEl.style.width = ((cur + 1) / frames.length * 100).toFixed(1) + '%';
-    }
+    // caption + step + progress follow the frame only while 書面調査 is selected
+    if (activeTab !== 0) return;
+    stepEl.textContent = 'STEP ' + (cur + 1);
+    capEl.textContent = docCaptions[cur];
+    // snap to this frame's start, then creep to the next over the dwell time
+    progEl.style.transition = 'none';
+    progEl.style.width = (cur / frames.length * 100).toFixed(1) + '%';
+    void progEl.offsetWidth;
+    progEl.style.transition = 'width ' + FRAME_MS + 'ms linear';
+    progEl.style.width = ((cur + 1) / frames.length * 100).toFixed(1) + '%';
   }
   function paintPlayBtn() {
     var icon = document.getElementById('demo-play-icon');
@@ -847,6 +857,11 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   function stop() {
     playing = false;
     if (timer) { clearInterval(timer); timer = null; }
+    if (activeTab === 0) {   // freeze the bar where it is instead of creeping on
+      var w = getComputedStyle(progEl).width;
+      progEl.style.transition = 'none';
+      progEl.style.width = w;
+    }
     paintPlayBtn();
   }
 
@@ -862,6 +877,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
     } else {
       stepEl.textContent = steps[i];
       capEl.textContent = captions[i];
+      progEl.style.transition = 'width .4s ease';
       progEl.style.width = '30%';
     }
   }
