@@ -60,6 +60,11 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 .contact-btn.inquiry.active{background:linear-gradient(135deg,#2360D6,#1B6FE0);box-shadow:0 10px 26px rgba(35,96,214,0.3);}
 .contact-btn.trial.active{background:linear-gradient(90deg,#F6A21E,#E8620E);box-shadow:0 10px 26px rgba(232,98,14,0.32);}
 
+/* mobile-only helpers (inert on desktop) */
+.sp-br{display:none;}
+.hdr-burger{display:none;}
+.hdr-menu{display:none;}
+
 /* ===== Responsive: tablet ===== */
 @media (max-width:900px){
   .site-nav{display:none!important;}
@@ -74,68 +79,105 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 
 /* ===== Responsive: phone ===== */
 @media (max-width:640px){
-  /* header: keep only the trial CTA */
-  .hdr-inquiry,.hdr-login{display:none!important;}
-  header .om-cta,body>div>div>div>div>a.om-cta-trial{font-size:12px!important;}
+  /* responsive line breaks */
+  .sp-br{display:inline!important;}
+  .pc-br{display:none!important;}
 
-  /* hero */
-  .hero-grid{grid-template-columns:1fr!important;padding:118px 18px 72px!important;gap:26px!important;}
-  .hero-grid h1{font-size:23px!important;}
-  .hero-grid h1 span{white-space:normal!important;padding:8px 12px!important;}
+  /* header: half outer spacing, 3/4 height, small logo, hamburger */
+  .hdr-wrap{top:10px!important;padding:0 10px!important;}
+  .hdr-bar{height:54px!important;padding:0 10px 0 14px!important;border-radius:16px!important;position:relative!important;}
+  .hdr-logo{height:16px!important;}
+  .hdr-inquiry,.hdr-login,.hdr-trial{display:none!important;}
+  .hdr-burger{display:flex!important;}
+  .hdr-menu.open{display:flex!important;}
+
+  /* hero: title bigger, sub slightly smaller, order = title > sub > screen > CTA */
+  .hero-grid{display:flex!important;flex-direction:column!important;padding:96px 18px 64px!important;gap:22px!important;}
+  .hero-left{display:contents!important;}
+  .hero-img-wrap{order:1!important;margin:0 auto!important;max-width:92%!important;}
+  .hero-cta-card{order:2!important;}
+  .hero-grid h1{font-size:28px!important;}
+  .hero-grid h1 span{white-space:normal!important;padding:8px 14px!important;}
+  .hero-sub span[style*="font-size:22px"]{font-size:19px!important;}
+  .hero-sub span[style*="font-size:15px"]{font-size:13px!important;}
   .hero-cta-card{display:flex!important;width:100%!important;padding:18px 16px!important;box-sizing:border-box!important;}
   .hero-cta-cols{flex-direction:column!important;gap:12px!important;width:100%!important;}
   .hero-cta-cols>div{flex:1!important;width:100%!important;}
   .hero-cta-cols a{padding:12px 10px!important;width:100%!important;box-sizing:border-box!important;text-align:center!important;font-size:14px!important;white-space:nowrap!important;}
   .hero-cta-card>p{font-size:15px!important;}
-  .hero-img-wrap{margin:0 auto!important;max-width:88%!important;}
   .hero-img-wrap>div:first-child{margin:0!important;}
   .hero-img-wrap>div:last-child{display:none!important;} /* floating phone */
 
   /* section paddings */
-  #about{padding:64px 18px!important;}
-  #demo{padding:56px 16px!important;}
-  #effect{padding:64px 18px 64px!important;}
-  #contact{padding:64px 16px 72px!important;}
+  #about{padding:44px 18px!important;}
+  #demo{padding:52px 16px!important;}
+  #effect{padding:56px 14px!important;}
+  #contact{padding:56px 16px 64px!important;}
 
-  /* about */
-  #about h2{font-size:30px!important;}
-  .feat-3col{gap:44px!important;}
-  .feat-3col>div{padding:34px 22px 30px!important;}
+  /* about: compact so 01-03 fit in about one screen */
+  #about h2{font-size:25px!important;}
+  #about h2+p{font-size:13px!important;line-height:1.8!important;margin-top:12px!important;}
+  .feat-3col{gap:16px!important;margin-top:34px!important;}
+  .feat-3col>div{padding:26px 18px 16px!important;}
+  .feat-3col>div>div:nth-child(2)>span:first-child{font-size:36px!important;}
+  .feat-3col>div h3{font-size:18px!important;margin-bottom:8px!important;}
+  .feat-3col>div p{font-size:12.5px!important;line-height:1.7!important;}
+  .feat-3col>div>div:last-child{width:86px!important;margin:6px auto 0!important;}
 
-  /* demo */
-  #demo h2{font-size:24px!important;}
-  #demo-tabs{display:flex!important;flex-wrap:wrap!important;max-width:100%!important;padding:8px!important;gap:8px!important;box-sizing:border-box!important;}
-  .demo-tab{padding:9px 16px!important;font-size:12px!important;}
+  /* demo: 3 tabs only, small-radius chips, taller screen, no reserve button */
+  #demo h2{font-size:23px!important;}
+  #demo-tabs{display:flex!important;flex-wrap:wrap!important;max-width:100%!important;padding:6px!important;gap:6px!important;box-sizing:border-box!important;border-radius:12px!important;}
+  .demo-tab{padding:9px 14px!important;font-size:12px!important;border-radius:8px!important;}
+  .demo-tab[data-idx="3"],.demo-tab[data-idx="4"]{display:none!important;}
+  .demo-stage{aspect-ratio:3/2!important;}
+  .demo-reserve{display:none!important;}
   #demo a.om-cta{padding:13px 20px!important;font-size:13px!important;box-sizing:border-box!important;text-align:center!important;}
 
   /* pain */
-  .pain-sec{padding:64px 18px 72px!important;}
+  .pain-sec{padding:48px 18px 40px!important;}
   .pain-sec h2{font-size:24px!important;}
   .pain-single{width:100%!important;}
   .proc-steps span.mono{width:44px!important;height:44px!important;font-size:16px!important;}
   .proc-steps p{font-size:13px!important;}
 
-  /* bridge */
-  .bridge-sec{padding:64px 18px 110px!important;}
-  .bridge-title h2{font-size:26px!important;}
-  .bridge-title h2 span{font-size:32px!important;}
+  /* bridge: tight top spacing, title forced to one line */
+  .bridge-sec{padding:20px 18px 96px!important;}
+  .bridge-sec p{font-size:19px!important;}
+  .bridge-title h2{font-size:17px!important;white-space:nowrap!important;margin-top:10px!important;}
+  .bridge-title h2 span{font-size:22px!important;}
+  .bridge-title>div{height:10px!important;margin-top:14px!important;}
+  .bridge-sec img{max-width:78%!important;}
 
-  /* effect – stack chart bars above the ring */
-  #effect h2{font-size:27px!important;}
-  .effect-chart{flex-direction:column!important;align-items:center!important;gap:22px!important;}
-  .effect-2col>div{padding:32px 20px!important;}
+  /* effect: headings on one line, charts stay side-by-side like PC (scaled down) */
+  #effect h2{font-size:20px!important;white-space:nowrap!important;}
+  #effect h2+p{font-size:13px!important;}
+  .effect-2col>div{padding:24px 12px!important;}
+  .effect-chart{flex-direction:row!important;gap:10px!important;align-items:center!important;}
+  .effect-chart>div:first-child>div:first-child{gap:12px!important;}
+  .effect-chart>div:first-child>div:first-child>div{width:26px!important;}
+  .effect-chart>div:first-child>div:last-child{gap:12px!important;}
+  .effect-chart>div:first-child>div:last-child p{width:26px!important;font-size:9px!important;}
+  .effect-chart>div:last-child{gap:10px!important;}
+  .effect-chart>div:last-child>div:first-child{width:118px!important;height:118px!important;}
+  .effect-chart>div:last-child>div:first-child p{font-size:9.5px!important;}
+  .effect-chart>div:last-child>div:first-child p.mono{font-size:32px!important;}
+  .effect-chart>div:last-child>div:last-child{padding:8px 10px!important;}
+  .effect-chart>div:last-child>div:last-child p{font-size:9px!important;}
+  .effect-chart>div:last-child>div:last-child p.mono{font-size:15px!important;}
 
-  /* win-rate */
-  .winrate-sec{padding:64px 18px!important;}
-  .winrate-sec h2{font-size:27px!important;}
-
-  /* win-rate quote mockup: hide decorative floating badges to avoid overflow */
+  /* win-rate: 2 lines via sp-br */
+  .winrate-sec{padding:56px 18px!important;}
+  .winrate-sec h2{font-size:22px!important;}
+  .winrate-sec h2+p{font-size:13px!important;}
   .q-badge{display:none!important;}
 
-  /* contact form: single column rows */
+  /* contact */
+  .cta-band h3{font-size:18px!important;white-space:nowrap!important;}
+  .cta-band>div{padding:34px 14px!important;}
+  #contact h3{font-size:19px!important;white-space:nowrap!important;}
   .form-row{grid-template-columns:1fr!important;}
   .form-label{border-bottom:1px dashed #C9D4E6;}
-  #contact>div{padding:36px 20px!important;}
+  #contact>div{padding:32px 16px!important;}
 
   /* footer */
   footer>div{padding:32px 20px!important;}
@@ -146,10 +188,10 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 
 <!-- ============ HEADER + HERO ============ -->
 <div id="top" style="position:relative;">
-  <div style="position:absolute;top:20px;left:0;right:0;z-index:5;padding:0 20px;">
-    <div style="max-width:1160px;margin:0 auto;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:22px;padding:0 12px 0 24px;height:72px;display:flex;align-items:center;gap:14px;box-shadow:0 12px 34px rgba(11,43,83,0.16);border:1px solid rgba(237,240,245,0.7);">
+  <div class="hdr-wrap" style="position:absolute;top:20px;left:0;right:0;z-index:5;padding:0 20px;">
+    <div class="hdr-bar" style="max-width:1160px;margin:0 auto;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:22px;padding:0 12px 0 24px;height:72px;display:flex;align-items:center;gap:14px;box-shadow:0 12px 34px rgba(11,43,83,0.16);border:1px solid rgba(237,240,245,0.7);">
       <a href="#top" style="display:flex;align-items:center;gap:10px;white-space:nowrap;">
-        <img src="assets/Astro-logo-trimmed.png" alt="Astro" style="height:21px;width:auto;display:block;">
+        <img class="hdr-logo" src="assets/Astro-logo-trimmed.png" alt="Astro" style="height:21px;width:auto;display:block;">
       </a>
       <nav class="site-nav" style="display:flex;gap:14px;margin-left:auto;font-size:13px;font-weight:700;min-width:0;">
         <a href="features.html" style="color:#10315C;white-space:nowrap;">Astroの特徴</a>
@@ -158,8 +200,23 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
       </nav>
       <div style="display:flex;gap:8px;align-items:center;flex:none;">
         <a href="#contact" class="hdr-inquiry" style="padding:11px 15px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">お問い合わせ</a>
-        <a href="#contact" class="om-cta om-cta-trial" style="padding:11px 15px;border-radius:999px;background:linear-gradient(90deg,#F6A21E,#E8620E);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">無料トライアル</a>
+        <a href="#contact" class="om-cta om-cta-trial hdr-trial" style="padding:11px 15px;border-radius:999px;background:linear-gradient(90deg,#F6A21E,#E8620E);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;">無料トライアル</a>
         <a href="#" class="hdr-login" style="font-size:12px;font-weight:700;color:#7A879B;margin:0 4px;white-space:nowrap;">ログイン</a>
+      </div>
+      <button class="hdr-burger" id="hdr-burger" aria-label="メニュー" style="margin-left:auto;width:34px;height:34px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0;">
+        <span style="display:block;width:22px;height:2px;background:#10315C;border-radius:2px;"></span>
+        <span style="display:block;width:22px;height:2px;background:#10315C;border-radius:2px;"></span>
+        <span style="display:block;width:22px;height:2px;background:#10315C;border-radius:2px;"></span>
+      </button>
+      <div class="hdr-menu" id="hdr-menu" style="position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:16px;box-shadow:0 16px 40px rgba(11,43,83,0.2);border:1px solid #E1E6EF;padding:10px;flex-direction:column;gap:2px;">
+        <a href="features.html" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#10315C;">Astroの特徴</a>
+        <a href="#demo" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#10315C;">デモ体験</a>
+        <a href="#effect" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#10315C;">導入効果</a>
+        <a href="#" style="padding:12px 14px;border-radius:10px;font-size:14px;font-weight:700;color:#7A879B;">ログイン</a>
+        <div style="display:flex;gap:8px;margin-top:6px;">
+          <a href="#contact" style="flex:1;text-align:center;padding:12px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:13px;font-weight:700;">お問い合わせ</a>
+          <a href="#contact" style="flex:1;text-align:center;padding:12px;border-radius:999px;background:linear-gradient(90deg,#F6A21E,#E8620E);color:#fff;font-size:13px;font-weight:700;">無料トライアル</a>
+        </div>
       </div>
     </div>
   </div>
@@ -174,12 +231,12 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
     <div style="position:absolute;bottom:22%;left:22%;width:180px;height:180px;background:linear-gradient(315deg,rgba(143,240,211,0.14),rgba(11,42,102,0.1));clip-path:polygon(50% 0,100% 86%,0 86%);filter:blur(8px);animation:heroDrift2 13s ease-in-out infinite;transform:rotate(18deg);"></div>
     <div style="position:absolute;right:0;bottom:0;width:100%;height:24%;background:#fff;clip-path:polygon(30% 0,100% 0,100% 100%,0 100%);"></div>
     <div class="hero-grid" style="position:relative;max-width:1160px;margin:0 auto;padding:172px 24px 96px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:40px;align-items:center;">
-      <div>
+      <div class="hero-left">
         <h1 style="margin:0;font-size:38px;font-weight:900;line-height:1;color:#fff;display:flex;flex-direction:column;align-items:flex-start;gap:6px;">
           <span style="background:#0B2A66;display:inline-block;padding:10px 16px;white-space:nowrap;animation:heroReveal .8s cubic-bezier(.22,.61,.36,1) both .2s;">アスベスト事前調査を</span>
           <span style="background:#0B2A66;display:inline-block;padding:10px 16px;white-space:nowrap;animation:heroReveal .8s cubic-bezier(.22,.61,.36,1) both .45s;">AIで次のステージへ</span>
         </h1>
-        <p style="margin:26px 0 0;color:#fff;line-height:1.9;text-shadow:0 1px 10px rgba(11,42,102,0.4);animation:heroFade .9s ease both .85s;"><span style="font-size:22px;font-weight:900;">書面調査</span><span style="font-size:15px;">•</span><span style="font-size:22px;font-weight:900;">目視調査</span><span style="font-size:15px;">•</span><span style="font-size:22px;font-weight:900;">報告書作成</span><span style="font-size:15px;">の</span><br><span style="font-size:22px;font-weight:900;">すべての工程</span><span style="font-size:15px;">を</span><span style="font-size:22px;font-weight:900;">3つのAI</span><span style="font-size:15px;">が</span><span style="font-size:22px;font-weight:900;">効率化</span><span style="font-size:15px;">する</span><br><span style="font-size:22px;font-weight:900;white-space:nowrap;">AIサービス</span><span style="font-size:15px;">です。</span></p>
+        <p class="hero-sub" style="margin:26px 0 0;color:#fff;line-height:1.9;text-shadow:0 1px 10px rgba(11,42,102,0.4);animation:heroFade .9s ease both .85s;"><span style="font-size:22px;font-weight:900;">書面調査</span><span style="font-size:15px;">•</span><span style="font-size:22px;font-weight:900;">目視調査</span><span style="font-size:15px;">•</span><span style="font-size:22px;font-weight:900;">報告書作成</span><span style="font-size:15px;">の</span><br><span style="font-size:22px;font-weight:900;">すべての工程</span><span style="font-size:15px;">を</span><span style="font-size:22px;font-weight:900;">3つのAI</span><span style="font-size:15px;">が</span><span style="font-size:22px;font-weight:900;">効率化</span><span style="font-size:15px;">する</span><br><span style="font-size:22px;font-weight:900;white-space:nowrap;">AIサービス</span><span style="font-size:15px;">です。</span></p>
         <div class="hero-cta-card" style="display:inline-flex;flex-direction:column;align-items:center;gap:12px;margin-top:30px;background:#fff;border-radius:16px;padding:16px 24px 16px;position:relative;z-index:2;box-shadow:0 10px 28px rgba(6,18,40,0.25);animation:heroPop .9s cubic-bezier(.22,.61,.36,1) both 1.15s;">
           <div class="hero-cta-cols" style="display:flex;gap:28px;">
           <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
@@ -277,7 +334,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
         <span style="margin-left:14px;font-family:'Barlow',sans-serif;font-size:12px;color:#9DB4D8;">app.astro.jp ｜ <span id="demo-url-label">書面調査</span></span>
       </div>
       <div style="border:1px solid #D8E2F1;border-top:none;border-radius:0 0 16px 16px;background:#fff;padding:10px;box-shadow:0 24px 60px rgba(11,43,83,0.16);">
-        <div style="position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#EAF1FF;">
+        <div class="demo-stage" style="position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#EAF1FF;">
           <div class="demo-panel active" data-idx="0"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Zumiru 図面解析の操作画面</span></div></div>
           <div class="demo-panel" data-idx="1"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Asmiru 写真判定の操作画面</span></div></div>
           <div class="demo-panel" data-idx="2"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Hokumiru 報告書作成の操作画面</span></div></div>
@@ -295,7 +352,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
       </div>
       <div style="display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap;">
         <a href="#contact" class="om-cta" style="padding:15px 36px;border-radius:999px;background:linear-gradient(90deg,#F6A21E,#E8620E);color:#fff;font-size:14px;font-weight:700;">無料トライアルで実際に触る</a>
-        <a href="#contact" class="om-cta" style="padding:15px 36px;border-radius:999px;background:#fff;color:#2360D6;font-size:14px;font-weight:700;border:1px solid #CFE0F7;">オンラインデモを予約</a>
+        <a href="#contact" class="om-cta demo-reserve" style="padding:15px 36px;border-radius:999px;background:#fff;color:#2360D6;font-size:14px;font-weight:700;border:1px solid #CFE0F7;">オンラインデモを予約</a>
       </div>
     </div>
   </div>
@@ -445,7 +502,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 <section class="winrate-sec" style="padding:96px 48px 88px;background:linear-gradient(180deg,#F4F8FF,#fff 58%);">
   <div style="max-width:1120px;margin:0 auto;">
     <div data-anim="up">
-    <h2 style="margin:0;text-align:center;font-size:42px;font-weight:900;line-height:1.4;letter-spacing:0.01em;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;">見積提出スピードと確かな根拠で<br>受注率向上</h2>
+    <h2 style="margin:0;text-align:center;font-size:42px;font-weight:900;line-height:1.4;letter-spacing:0.01em;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;">見積提出スピードと<br class="sp-br">確かな根拠で<br class="pc-br">受注率向上</h2>
     <p style="margin:22px 0 0;text-align:center;font-size:16px;font-weight:700;line-height:2;">Astroが出すのは、数字の根拠まで示せる見積。<br>発注者への説明がそのまま提案力になります。</p>
     </div>
     <div class="winrate-2col" style="display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;margin-top:56px;">
@@ -504,11 +561,11 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 </section>
 
 <!-- ============ CONTACT BAND ============ -->
-<div style="position:relative;overflow:hidden;background:linear-gradient(120deg,#0B3AA0,#2360D6 60%,#5A90EC);padding:72px 24px;">
+<div class="cta-band" style="position:relative;overflow:hidden;background:linear-gradient(120deg,#0B3AA0,#2360D6 60%,#5A90EC);padding:72px 24px;">
   <div style="position:absolute;inset:0;opacity:0.16;background:repeating-linear-gradient(135deg,rgba(255,255,255,0.4) 0 2px,transparent 2px 30px),radial-gradient(circle at 90% 120%,#fff 0 20%,transparent 21%);"></div>
   <div style="position:relative;background:#fff;border-radius:16px;max-width:760px;margin:0 auto;padding:44px 40px;text-align:center;" data-anim="up">
     <p class="mono" style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.16em;color:#24C39A;">CONTACT</p>
-    <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#2360D6;line-height:1.5;">サービスに関するご質問・お見積りは<br>お気軽にお問い合わせください。</h3>
+    <h3 style="margin:12px 0 0;font-size:26px;font-weight:900;color:#2360D6;line-height:1.5;">サービスに関する<br class="sp-br">ご質問・お見積りは<br>お気軽にお問い合わせください。</h3>
     <p style="margin:14px 0 0;font-size:14px;color:#4B5563;">まずは30日間の無料トライアルをお試しください。</p>
     <div style="display:flex;gap:16px;justify-content:center;margin-top:26px;flex-wrap:wrap;">
       <a href="#contact" class="om-cta" style="padding:15px 42px;border-radius:999px;background:linear-gradient(135deg,#2360D6,#1B6FE0);color:#fff;font-size:14px;font-weight:700;">お問い合わせ</a>
@@ -720,6 +777,22 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
       b.classList.add('active');
     });
   });
+
+  /* ---- mobile hamburger menu ---- */
+  var burger = document.getElementById('hdr-burger');
+  var menu = document.getElementById('hdr-menu');
+  if (burger && menu) {
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      menu.classList.toggle('open');
+    });
+    menu.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') menu.classList.remove('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!menu.contains(e.target) && e.target !== burger) menu.classList.remove('open');
+    });
+  }
 
   /* ---- webinar card close ---- */
   var wc = document.getElementById('webinar-close');
