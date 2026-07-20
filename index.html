@@ -56,9 +56,12 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 
 /* demo slideshow (書面調査: 6 frames) */
 .demo-seq{position:absolute;inset:0;background:#fff;}
-.demo-frame{position:absolute;inset:0;opacity:0;transform:translateX(14px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);pointer-events:none;}
-.demo-frame.on{opacity:1;transform:translateX(0);z-index:2;}
-.demo-frame.out{opacity:0;transform:translateX(-14px);z-index:1;}
+/* 1.5s soft dissolve: incoming settles from a slight zoom + blur, outgoing recedes */
+.demo-frame{position:absolute;inset:0;opacity:0;transform:scale(1.035);filter:blur(7px);
+  transition:opacity 1.5s cubic-bezier(.33,.9,.28,1),transform 1.5s cubic-bezier(.33,.9,.28,1),filter 1.1s cubic-bezier(.33,.9,.28,1);
+  pointer-events:none;will-change:opacity,transform,filter;}
+.demo-frame.on{opacity:1;transform:scale(1);filter:blur(0);z-index:2;}
+.demo-frame.out{opacity:0;transform:scale(.988);filter:blur(4px);z-index:1;}
 /* cover = fill the frame edge to edge, no letterbox */
 .demo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
 .demo-dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(14,35,64,0.42);backdrop-filter:blur(4px);z-index:3;}
