@@ -46,7 +46,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 /* 圏点（赤ドット）: LINEカード見出し1。text-emphasis はドット径を変えられないので背景で描く */
 .kenten{padding-top:0.26em;background-image:radial-gradient(circle at 50% 42%,#E23A2E 0 0.135em,transparent 0.14em);background-size:1em 0.26em;background-position:0 0;background-repeat:repeat-x;}
 /* スマホ・タブレット用のフローティングカード（900px以下で表示。ヘッダーをつまんで移動できる） */
-.line-bar{display:none;position:fixed;left:auto;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));width:min(58vw,222px);z-index:50;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 14px 36px rgba(11,43,83,0.24);animation:webinarIn .8s cubic-bezier(.22,.61,.36,1) both 1.6s;}
+.line-bar{display:none;position:fixed;left:auto;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));width:min(50vw,196px);z-index:50;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 14px 36px rgba(11,43,83,0.24);animation:webinarIn .8s cubic-bezier(.22,.61,.36,1) both 1.6s;}
 .line-bar.dragging{box-shadow:0 20px 46px rgba(11,43,83,0.32);}
 .line-bar.dragging #line-bar-handle{cursor:grabbing;}
 @media (min-width:641px){.line-bar{right:16px;width:284px;}}
@@ -585,8 +585,8 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
     <p style="margin:14px 0 0;text-align:center;font-size:15px;font-weight:700;color:#4B5563;">図面の書き起こし・DB照合から報告書作成までをAIが自動化。<br>調査時間だけでなく、分析依頼にかかる費用まで削減します。</p>
     </div>
     <div class="effect-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px;">
-      <div><img src="assets/graph1.png" alt="調査にかかる時間：書面調査の作業時間を90%削減（2日→30分）、報告・申請の事務作業を95%削減（5時間→15分）" style="width:100%;height:auto;display:block;border-radius:14px;"></div>
-      <div><img src="assets/graph2.png" alt="1現場あたりのコスト：調査コストを約48%削減（約29.5万円→約15.3万円）、分析依頼の検体数10→5検体" style="width:100%;height:auto;display:block;border-radius:14px;"></div>
+      <div style="border-radius:14px;overflow:hidden;box-shadow:0 14px 36px rgba(11,43,83,0.14),0 3px 10px rgba(11,43,83,0.07);"><img src="assets/graph1.png" alt="調査にかかる時間：書面調査の作業時間を90%削減（2日→30分）、報告・申請の事務作業を95%削減（5時間→15分）" style="width:100%;height:auto;display:block;"></div>
+      <div style="border-radius:14px;overflow:hidden;box-shadow:0 14px 36px rgba(11,43,83,0.14),0 3px 10px rgba(11,43,83,0.07);"><img src="assets/graph2.png" alt="1現場あたりのコスト：調査コストを約48%削減（約29.5万円→約15.3万円）、分析依頼の検体数10→5検体" style="width:100%;height:auto;display:block;"></div>
     </div>
     <p style="margin:28px 0 0;text-align:center;font-size:12px;color:#9AA4B2;line-height:1.9;">※ 月間9現場・1現場8検体の解体業者モデルでの試算（人件費 日当2万円・分析依頼料 1検体3万円で算定、Astro月額利用料は含みません）。<br>※ 導入効果はお客様の現場条件により異なります。</p>
   </div>
@@ -946,16 +946,15 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 <div class="line-card" id="line-card" style="position:fixed;bottom:24px;right:24px;z-index:50;width:356px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 18px 44px rgba(11,43,83,0.22);animation:webinarIn .8s cubic-bezier(.22,.61,.36,1) both 1.6s;">
   <button id="line-close" aria-label="閉じる" style="position:absolute;top:9px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.9);border:1px solid #E1E6EF;display:flex;align-items:center;justify-content:center;font-size:14px;color:#7A879B;z-index:3;cursor:pointer;padding:0;">×</button>
   <a href="https://lin.ee/WUO5bzh" target="_blank" rel="noopener" style="display:block;color:inherit;">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 18px;padding-right:44px;background:#DFE5EF;border-bottom:1px solid #CCD5E4;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 16px;padding-right:44px;background:#DFE5EF;border-bottom:1px solid #CCD5E4;">
       <span style="font-size:11px;font-weight:700;color:#10315C;letter-spacing:0.02em;">無料LINE相談</span>
       <img src="assets/Astro-logo-trimmed.png" alt="Astro" style="height:11px;width:auto;display:block;">
     </div>
-    <div style="padding:15px 18px 15px;">
-      <div style="display:grid;grid-template-columns:1.42fr 1fr;gap:11px;align-items:center;">
+    <div style="padding:12px 16px;">
+      <div style="display:grid;grid-template-columns:1.62fr 1fr;gap:10px;align-items:center;">
         <div>
-          <p style="margin:0;font-size:18px;font-weight:700;color:#10315C;line-height:1.7;letter-spacing:0.01em;white-space:nowrap;"><span class="kenten">受注率</span>と<span class="kenten">業務効率</span>を</p>
-          <p style="margin:5px 0 0;font-size:26px;font-weight:900;line-height:1.32;letter-spacing:0.01em;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;">Astroで<br>同時に向上！</p>
-          <p style="margin:15px 0 0;font-size:12.5px;font-weight:700;color:#10315C;line-height:1.95;letter-spacing:0.01em;"><span class="grad-hl">NETIS申請中技術</span>を活用した<br>事前調査の実施方法とは？</p>
+          <p style="margin:0;font-size:21px;font-weight:900;line-height:1.36;white-space:nowrap;letter-spacing:0.01em;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;">受注率と業務効率を<br>同時に向上！</p>
+          <p style="margin:10px 0 0;font-size:13px;font-weight:700;color:#10315C;line-height:1.8;letter-spacing:0.01em;"><span class="grad-hl">NETIS申請中技術</span>を活用した<br>事前調査の実施方法とは？</p>
         </div>
         <div style="display:flex;align-items:center;justify-content:center;">
           <img src="assets/line-qr.png" alt="LINE友だち追加QRコード" style="width:100%;height:auto;display:block;border-radius:6px;">
@@ -963,12 +962,12 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
       </div>
     </div>
     <div style="display:flex;align-items:stretch;">
-      <div style="background:#10315C;color:#fff;padding:12px 18px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+      <div style="background:#10315C;color:#fff;padding:9px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
         <p style="margin:0;font-size:26px;font-weight:900;line-height:1;letter-spacing:0.01em;">10<span style="font-size:13px;">秒</span></p>
         <p style="margin:5px 0 0;font-size:11px;font-weight:700;white-space:nowrap;">登録完了</p>
       </div>
-      <div style="flex:1;background:#06C755;padding:12px 14px;display:flex;align-items:center;justify-content:center;">
-        <span style="display:block;width:100%;font-size:15px;font-weight:900;background:#fff;color:#06A648;border-radius:999px;padding:11px 0;text-align:center;letter-spacing:0.01em;">LINEで聞いてみる ›</span>
+      <div style="flex:1;background:#06C755;padding:9px 12px;display:flex;align-items:center;justify-content:center;">
+        <span style="display:block;width:100%;font-size:15px;font-weight:900;background:#fff;color:#06A648;border-radius:999px;padding:9px 0;text-align:center;letter-spacing:0.01em;">LINEで聞いてみる ›</span>
       </div>
     </div>
   </a>
@@ -984,8 +983,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   <a href="https://lin.ee/WUO5bzh" target="_blank" rel="noopener" style="display:block;color:inherit;">
     <div style="padding:10px 12px 11px;">
       <p style="margin:0 0 7px;"><span class="grad-hl" style="font-size:10px;padding:1px 5px;">NETIS申請中技術を活用</span></p>
-      <p style="margin:0;font-size:12px;font-weight:700;color:#10315C;line-height:1.6;letter-spacing:0.01em;white-space:nowrap;"><span class="kenten">受注率</span>と<span class="kenten">業務効率</span>を</p>
-      <p style="margin:2px 0 0;font-size:17px;font-weight:900;line-height:1.3;letter-spacing:0.01em;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;white-space:nowrap;">Astroで同時に向上！</p>
+      <p style="margin:0;font-size:15px;font-weight:900;line-height:1.4;letter-spacing:0.01em;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;white-space:nowrap;">受注率と業務効率を<br>同時に向上！</p>
     </div>
     <div style="display:flex;align-items:stretch;">
       <div style="background:#10315C;color:#fff;padding:9px 11px;text-align:center;display:flex;flex-direction:column;justify-content:center;flex:0 0 auto;">
