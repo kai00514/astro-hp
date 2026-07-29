@@ -135,12 +135,24 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   .sp-br{display:inline!important;}
   .pc-br{display:none!important;}
 
-  /* unified section titles: same gradient + size as "Astroの特徴" (pain section excluded) */
-  #about h2,#demo h2,.bridge-title h2,#effect h2,.winrate-sec h2{
+  /* bridge keeps its own gradient treatment */
+  .bridge-title h2{
     font-size:24px!important;line-height:1.45!important;
     background:linear-gradient(90deg,#0B3AA0 0%,#0E8C6E 100%)!important;
     -webkit-background-clip:text!important;background-clip:text!important;
     -webkit-text-fill-color:transparent!important;color:transparent!important;
+  }
+  /* demo-style header set (label / solid title / subtitle) — keep the solid colour */
+  #about h2,#demo h2,#effect h2,.winrate-sec h2,#functions h2,#allinone h2{
+    font-size:24px!important;line-height:1.45!important;
+  }
+  #about>div>div:first-child>p:first-child,#demo>div>p:first-child,
+  #effect p:first-child,.winrate-sec p:first-child,
+  #functions>div>div>p:first-child,#allinone>div>div:first-child>p:first-child{
+    font-size:13px!important;letter-spacing:0.08em!important;
+  }
+  #about h2+p,#demo h2+p,#effect h2+p,.winrate-sec h2+p,#functions h2+p,#allinone h2+p{
+    font-size:13px!important;line-height:1.75!important;margin-top:12px!important;
   }
   .bridge-title h2 span{
     font-size:24px!important;background:none!important;
@@ -232,31 +244,8 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   .bridge-sec>div>div:last-child{width:100%!important;max-width:300px!important;margin-left:auto!important;margin-right:auto!important;}
   .bridge-sec img{max-width:100%!important;margin:0 auto!important;}
 
-  /* effect: headings match the demo-section title size, charts side-by-side like PC */
-  #effect h2{white-space:nowrap!important;}
-  #effect h2+p{font-size:13px!important;}
-  .effect-2col>div{padding:24px 10px!important;}
-  /* unify the two card header pills to the same blue */
-  .effect-2col>div>p:first-child>span{background:#2360D6!important;font-size:13px!important;padding:7px 20px!important;}
-  .effect-chart{flex-direction:row!important;gap:6px!important;align-items:center!important;}
-  .effect-chart>div:first-child>div:first-child{gap:10px!important;}
-  .effect-chart>div:first-child>div:first-child>div{width:22px!important;}
-  /* shorten the over-long "これまで" bar (230px), rescaling the blue bars to keep the ratios */
-  .effect-chart>div:first-child>div:first-child>div:first-child{height:150px!important;}
-  .effect-2col>div:first-child .effect-chart>div:first-child>div:first-child>div:last-child{height:42px!important;}
-  .effect-2col>div:last-child .effect-chart>div:first-child>div:first-child>div:last-child{height:78px!important;}
-  /* unify ring accent colour across both cards */
-  .effect-chart>div:last-child>div:first-child{border-color:#2360D6!important;}
-  .effect-chart>div:first-child>div:last-child{gap:10px!important;}
-  .effect-chart>div:first-child>div:last-child p{width:22px!important;font-size:8.5px!important;}
-  .effect-chart>div:last-child{gap:8px!important;}
-  /* bigger ring */
-  .effect-chart>div:last-child>div:first-child{width:150px!important;height:150px!important;}
-  .effect-chart>div:last-child>div:first-child p{font-size:10.5px!important;}
-  .effect-chart>div:last-child>div:first-child p.mono{font-size:40px!important;}
-  .effect-chart>div:last-child>div:last-child{padding:7px 9px!important;}
-  .effect-chart>div:last-child>div:last-child p{font-size:8.5px!important;}
-  .effect-chart>div:last-child>div:last-child p.mono{font-size:14px!important;}
+  /* effect: graph images side-by-side like PC */
+  .effect-2col{gap:14px!important;}
 
   /* win-rate: 2 lines via sp-br */
   .winrate-sec{padding:56px 18px!important;}
@@ -264,14 +253,11 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   .q-badge{display:none!important;}
 
   /* functions + all-in-one: match the unified section-title scale */
-  #functions h2,#allinone h2{font-size:24px!important;line-height:1.45!important;}
   /* trim the desktop-sized vertical padding around the all-in-one heading */
   #functions{padding:56px 18px 48px!important;}
   #allinone{padding:44px 18px 56px!important;}
   #allinone>div>div:nth-child(2){margin-top:26px!important;}
   .aio-row{padding:22px 18px!important;}
-  #functions>div>div>p:first-child{font-size:15px!important;line-height:1.6!important;}
-  #allinone>div>div:first-child>p:first-child{font-size:13px!important;}
   /* all-in-one 01-08 item titles: one step down */
   .aio-row h3{font-size:20px!important;}
   .aio-row h3 span{font-size:13px!important;}
@@ -399,9 +385,9 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   <div style="position:absolute;bottom:-80px;left:-60px;width:240px;height:240px;background:linear-gradient(135deg,#EAF2FF,#DCEAFF);transform:rotate(24deg);border-radius:40px;opacity:0.6;"></div>
   <div style="position:relative;max-width:1160px;margin:0 auto;">
     <div style="text-align:center;" data-anim="up">
-      <p style="margin:0;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.04em;background:linear-gradient(90deg,#0E8C6E 0%,#1B6FE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">About Astro</p>
-      <h2 style="margin:12px 0 0;font-size:48px;font-weight:900;line-height:1.4;display:inline-block;background:linear-gradient(90deg,#0B3AA0 0%,#0E8C6E 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Astroの特徴</h2>
-      <p style="margin:18px auto 0;max-width:720px;font-size:15px;line-height:2;color:#10315C;">アスベスト事前調査のすべての工程を、根拠あるAIとワンストップで効率化します。</p>
+      <p style="margin:0;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;background:linear-gradient(90deg,#0E8C6E 0%,#1B6FE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">About Astro</p>
+      <h2 style="margin:12px 0 0;font-size:36px;font-weight:900;line-height:1.4;color:#10315C;">Astroの特徴</h2>
+      <p style="margin:14px auto 0;max-width:720px;font-size:15px;font-weight:700;color:#4B5563;">アスベスト事前調査のすべての工程を、根拠あるAIとワンストップで効率化します。</p>
     </div>
     <div class="feat-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px;">
       <div data-anim="up" class="om-card" style="position:relative;background:linear-gradient(180deg,#F4F8FE,#FCFDFF);border-radius:16px;padding:36px 30px 34px;box-shadow:0 10px 28px rgba(11,43,83,0.07);border:2px solid #2360D6;">
@@ -594,64 +580,13 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 <section id="effect" style="padding:96px 48px 88px;background:#fff;">
   <div style="max-width:1120px;margin:0 auto;">
     <div data-anim="up">
-    <h2 style="margin:0;text-align:center;font-size:42px;font-weight:900;line-height:1.4;letter-spacing:0.01em;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;">アスベスト事前調査にかかる<br>時間と金額を削減</h2>
-    <p style="margin:22px 0 0;text-align:center;font-size:16px;font-weight:700;line-height:2;">図面の書き起こし・DB照合から報告書作成までをAIが自動化。<br>調査時間だけでなく、分析依頼にかかる費用まで削減します。</p>
+    <p style="margin:0;text-align:center;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;background:linear-gradient(90deg,#0E8C6E 0%,#1B6FE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Results</p>
+    <h2 style="margin:12px 0 0;text-align:center;font-size:36px;font-weight:900;line-height:1.4;color:#10315C;">アスベスト事前調査にかかる<br>時間と金額を削減</h2>
+    <p style="margin:14px 0 0;text-align:center;font-size:15px;font-weight:700;color:#4B5563;">図面の書き起こし・DB照合から報告書作成までをAIが自動化。<br>調査時間だけでなく、分析依頼にかかる費用まで削減します。</p>
     </div>
     <div class="effect-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px;">
-      <div data-anim="left" class="om-card" style="background:#F7F9FC;border:1px solid #E1E6EF;border-radius:14px;padding:40px 36px;">
-        <p style="margin:0;text-align:center;"><span style="display:inline-block;padding:8px 26px;border-radius:999px;background:#2360D6;color:#fff;font-size:15px;font-weight:700;">調査にかかる時間</span></p>
-        <div class="effect-chart" style="display:flex;gap:26px;margin-top:30px;align-items:stretch;justify-content:center;">
-          <div style="flex:none;display:flex;flex-direction:column;justify-content:flex-end;">
-            <div style="display:flex;align-items:flex-end;gap:36px;border-bottom:2px solid #B9C2D0;">
-              <div style="width:56px;height:230px;background:#DFE3EA;"></div>
-              <div style="width:56px;height:64px;background:#1F6FD6;"></div>
-            </div>
-            <div style="display:flex;gap:36px;margin-top:8px;">
-              <p style="width:56px;text-align:center;margin:0;font-size:12px;font-weight:700;">これまで</p>
-              <p style="width:56px;text-align:center;margin:0;font-size:12px;font-weight:700;">Astro<br>導入後</p>
-            </div>
-          </div>
-          <div style="flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
-            <div style="width:186px;height:186px;border:2px dotted #2360D6;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
-              <p style="margin:0;font-size:13px;font-weight:700;">書面調査の作業時間を</p>
-              <p class="mono" style="margin:2px 0;font-size:52px;font-weight:700;line-height:0.9;">90<span style="font-size:24px;">%</span></p>
-              <p style="margin:0;font-size:13px;font-weight:700;">削減 <span class="mono" style="color:#2360D6;">2日 → 30分</span></p>
-            </div>
-            <div style="background:#EAF1FC;border-radius:10px;padding:12px 18px;text-align:center;">
-              <p style="margin:0;font-size:12px;font-weight:700;">報告・申請の事務作業</p>
-              <p class="mono" style="margin:4px 0 0;font-size:24px;font-weight:700;line-height:1;color:#2360D6;">95<span style="font-size:15px;">%</span><span style="font-size:13px;color:#10315C;font-weight:700;"> 削減 ｜ 5時間 → 15分</span></p>
-            </div>
-          </div>
-        </div>
-        <p style="margin:26px 0 0;text-align:center;font-size:15px;font-weight:900;"><span style="background:linear-gradient(transparent 62%,#9DEBCF 62%);padding:0 4px;">書き起こし・照合・報告書づくりの手作業がなくなる</span></p>
-      </div>
-      <div data-anim="right" data-anim-delay="140" class="om-card" style="background:#F7F9FC;border:1px solid #E1E6EF;border-radius:14px;padding:40px 36px;">
-        <p style="margin:0;text-align:center;"><span style="display:inline-block;padding:8px 26px;border-radius:999px;background:#10315C;color:#fff;font-size:15px;font-weight:700;">1現場あたりのコスト</span></p>
-        <div class="effect-chart" style="display:flex;gap:26px;margin-top:30px;align-items:stretch;justify-content:center;">
-          <div style="flex:none;display:flex;flex-direction:column;justify-content:flex-end;">
-            <div style="display:flex;align-items:flex-end;gap:36px;border-bottom:2px solid #B9C2D0;">
-              <div style="width:56px;height:230px;background:#DFE3EA;"></div>
-              <div style="width:56px;height:120px;background:#1F6FD6;"></div>
-            </div>
-            <div style="display:flex;gap:36px;margin-top:8px;">
-              <p style="width:56px;text-align:center;margin:0;font-size:12px;font-weight:700;">約29.5<br>万円</p>
-              <p style="width:56px;text-align:center;margin:0;font-size:12px;font-weight:700;">約15.3<br>万円</p>
-            </div>
-          </div>
-          <div style="flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
-            <div style="width:186px;height:186px;border:2px dotted #10315C;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
-              <p style="margin:0;font-size:13px;font-weight:700;">調査コストを</p>
-              <p class="mono" style="margin:2px 0;font-size:48px;font-weight:700;line-height:0.9;">約48<span style="font-size:24px;">%</span></p>
-              <p style="margin:0;font-size:13px;font-weight:700;">削減 <span class="mono" style="color:#2360D6;">29.5万 → 15.3万円</span></p>
-            </div>
-            <div style="background:#EAF1FC;border-radius:10px;padding:12px 18px;text-align:center;">
-              <p style="margin:0;font-size:12px;font-weight:700;">分析依頼の検体数</p>
-              <p class="mono" style="margin:4px 0 0;font-size:24px;font-weight:700;line-height:1;color:#2360D6;">10 → 5<span style="font-size:13px;color:#10315C;font-weight:700;"> 検体 ｜「みなし」で削減</span></p>
-            </div>
-          </div>
-        </div>
-        <p style="margin:26px 0 0;text-align:center;font-size:15px;font-weight:900;"><span style="background:linear-gradient(transparent 62%,#9DEBCF 62%);padding:0 4px;">検体数を絞り、分析依頼料と待機コストを抑える</span></p>
-      </div>
+      <div><img src="assets/graph1.png" alt="調査にかかる時間：書面調査の作業時間を90%削減（2日→30分）、報告・申請の事務作業を95%削減（5時間→15分）" style="width:100%;height:auto;display:block;border-radius:14px;"></div>
+      <div><img src="assets/graph2.png" alt="1現場あたりのコスト：調査コストを約48%削減（約29.5万円→約15.3万円）、分析依頼の検体数10→5検体" style="width:100%;height:auto;display:block;border-radius:14px;"></div>
     </div>
     <p style="margin:28px 0 0;text-align:center;font-size:12px;color:#9AA4B2;line-height:1.9;">※ 月間9現場・1現場8検体の解体業者モデルでの試算（人件費 日当2万円・分析依頼料 1検体3万円で算定、Astro月額利用料は含みません）。<br>※ 導入効果はお客様の現場条件により異なります。</p>
   </div>
@@ -661,8 +596,9 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 <section class="winrate-sec" style="padding:96px 48px 88px;background:linear-gradient(180deg,#F4F8FF,#fff 58%);">
   <div style="max-width:1120px;margin:0 auto;">
     <div data-anim="up">
-    <h2 style="margin:0;text-align:center;font-size:42px;font-weight:900;line-height:1.4;letter-spacing:0.01em;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;">見積提出スピードと<br class="sp-br">確かな根拠で<br class="pc-br">受注率向上</h2>
-    <p style="margin:22px 0 0;text-align:center;font-size:16px;font-weight:700;line-height:2;">Astroが出すのは、数字の根拠まで示せる見積。<br>発注者への説明がそのまま提案力になります。</p>
+    <p style="margin:0;text-align:center;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;background:linear-gradient(90deg,#0E8C6E 0%,#1B6FE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Advantage</p>
+    <h2 style="margin:12px 0 0;text-align:center;font-size:36px;font-weight:900;line-height:1.4;color:#10315C;">見積提出スピードと<br class="sp-br">確かな根拠で<br class="pc-br">受注率向上</h2>
+    <p style="margin:14px 0 0;text-align:center;font-size:15px;font-weight:700;color:#4B5563;">Astroが出すのは、数字の根拠まで示せる見積。<br>発注者への説明がそのまま提案力になります。</p>
     </div>
     <div class="winrate-2col" style="display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;margin-top:56px;">
       <div class="quote-wrap" style="position:relative;" data-anim="left">
@@ -724,8 +660,9 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   <div style="position:absolute;inset:0;opacity:0.10;background:radial-gradient(circle at 12% 8%,#7FB2FF 0 22%,transparent 23%),radial-gradient(circle at 92% 96%,#4E86E8 0 26%,transparent 27%);pointer-events:none;"></div>
   <div style="position:relative;max-width:1160px;margin:0 auto;">
     <div data-anim="up" style="text-align:center;">
-      <p style="margin:0;font-size:22px;font-weight:900;color:#8FC4F4;"><ruby style="ruby-position:over;ruby-align:center;position:relative;"><span style="position:relative;">石綿<rt style="position:absolute;left:50%;bottom:100%;transform:translateX(-50%);width:max-content;margin-bottom:1px;font-size:10px;font-weight:700;color:#8FC4F4;letter-spacing:-0.02em;white-space:nowrap;">アスベスト</rt></span></ruby>事前調査の業務がまるっと完了！</p>
-      <h2 style="margin:14px 0 0;font-size:40px;font-weight:900;color:#fff;">機能一覧</h2>
+      <p style="margin:0;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;color:#8FC4F4;">Features</p>
+      <h2 style="margin:12px 0 0;font-size:36px;font-weight:900;color:#fff;">機能一覧</h2>
+      <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#C7D8F0;"><ruby style="ruby-position:over;ruby-align:center;position:relative;"><span style="position:relative;">石綿<rt style="position:absolute;left:50%;bottom:100%;transform:translateX(-50%);width:max-content;margin-bottom:1px;font-size:10px;font-weight:700;color:#C7D8F0;letter-spacing:-0.02em;white-space:nowrap;">アスベスト</rt></span></ruby>事前調査の業務が、これひとつで完了します。</p>
     </div>
     <div class="func-grid" data-anim="up">
       <div class="func-card">
@@ -796,8 +733,9 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 <section id="allinone" style="background:#fff;padding:96px 24px 104px;">
   <div style="max-width:1120px;margin:0 auto;">
     <div data-anim="up" style="text-align:center;">
-      <p style="margin:0;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;background:linear-gradient(90deg,#0E8C6E 0%,#1B6FE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Astroでできること</p>
-      <h2 style="margin:12px 0 0;font-size:40px;font-weight:900;line-height:1.4;background:linear-gradient(120deg,#0B3AA0,#2360D6 38%,#5A90EC 78%,#7FB2FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2360D6;">アスベスト事前調査を<br class="sp-br">オールインワンで管理</h2>
+      <p style="margin:0;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;background:linear-gradient(90deg,#0E8C6E 0%,#1B6FE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">All-in-One</p>
+      <h2 style="margin:12px 0 0;font-size:36px;font-weight:900;line-height:1.4;color:#10315C;">アスベスト事前調査を<br class="sp-br">オールインワンで管理</h2>
+      <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#4B5563;">書面調査から報告・申請まで、8つの機能をひとつのサービスで。</p>
     </div>
     <div style="margin-top:72px;">
 
