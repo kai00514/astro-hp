@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>アスベスト事前調査AI「Astro」｜書面・目視・報告を3つのAIで効率化</title>
+<title>アスベスト事前調査AI「Astro」｜書面・目視・報告を4つのAIで効率化</title>
 <meta name="description" content="アスベスト事前調査の書面調査・目視調査・報告書作成のすべての工程を、根拠あるAIがワンストップで効率化。初期費用0円で30日間の無料トライアル。">
 <link rel="canonical" href="https://astro-hp.vercel.app/">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -20,14 +20,14 @@
 <meta property="og:site_name" content="Astro（アストロ）">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content="https://astro-hp.vercel.app/">
-<meta property="og:title" content="アスベスト事前調査AI「Astro」｜書面・目視・報告を3つのAIで効率化">
+<meta property="og:title" content="アスベスト事前調査AI「Astro」｜書面・目視・報告を4つのAIで効率化">
 <meta property="og:description" content="アスベスト事前調査の書面調査・目視調査・報告書作成のすべての工程を、根拠あるAIがワンストップで効率化。初期費用0円で30日間の無料トライアル。">
 <meta property="og:image" content="https://astro-hp.vercel.app/assets/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="アスベスト事前調査AI Astro">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="アスベスト事前調査AI「Astro」｜書面・目視・報告を3つのAIで効率化">
+<meta name="twitter:title" content="アスベスト事前調査AI「Astro」｜書面・目視・報告を4つのAIで効率化">
 <meta name="twitter:description" content="アスベスト事前調査の全工程を、根拠あるAIがワンストップで効率化。初期費用0円で30日間の無料トライアル。">
 <meta name="twitter:image" content="https://astro-hp.vercel.app/assets/ogp.png">
 
@@ -92,23 +92,8 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 
 /* demo slideshow (書面調査: 6 frames) */
 .demo-seq{position:absolute;inset:0;background:#fff;}
+.demo-vid{width:100%;height:100%;object-fit:cover;display:block;background:#fff;}
 /* 2s soft dissolve: incoming settles from a slight zoom + blur, outgoing recedes */
-.demo-frame{position:absolute;inset:0;opacity:0;transform:scale(1.035);filter:blur(7px);
-  transition:opacity 2s cubic-bezier(.33,.9,.28,1),transform 2s cubic-bezier(.33,.9,.28,1),filter 1.5s cubic-bezier(.33,.9,.28,1);
-  pointer-events:none;will-change:opacity,transform,filter;}
-.demo-frame.on{opacity:1;transform:scale(1);filter:blur(0);z-index:2;}
-.demo-frame.out{opacity:0;transform:scale(.988);filter:blur(4px);z-index:1;}
-/* cover = fill the frame edge to edge, no letterbox */
-.demo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
-/* tall capture: pan from top to bottom once the dissolve has settled.
-   --pan sets the duration per frame (taller captures get longer). */
-@keyframes demoPan{from{object-position:center top;}to{object-position:center bottom;}}
-.demo-frame.pan.on img{animation:demoPan var(--pan,4s) cubic-bezier(.4,0,.35,1) 1.6s both;}
-.demo-dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(14,35,64,0.42);backdrop-filter:blur(4px);z-index:3;}
-.demo-dot{width:7px;height:7px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,0.45);transition:background .25s ease,width .25s ease;}
-.demo-dot.on{background:#fff;width:18px;border-radius:999px;}
-@media (prefers-reduced-motion:reduce){.demo-frame,.demo-frame.on,.demo-frame.out{transition:opacity .01s;transform:none;}
-  .demo-frame.pan.on img{animation:none;object-position:center top;}}
 
 /* functions grid (機能一覧) */
 .func-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px;}
@@ -122,6 +107,41 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
 .func-card p{margin:10px 0 0;font-size:12.5px;font-weight:500;line-height:1.9;color:#C7D8F0;text-align:left;}
 @media (max-width:900px){.func-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:560px){.func-grid{gap:10px;}.func-card{padding:22px 14px 20px;}.func-ic{width:78px;height:78px;box-shadow:0 0 0 7px rgba(143,196,244,0.16),0 8px 18px rgba(3,14,38,0.34);}.func-ic svg{width:36px;height:36px;}.func-card h3{font-size:14px;margin-top:18px;}.func-card p{font-size:11.5px;line-height:1.8;}}
+/* --- functions: 3グループ（AI・解析 / 調査業務・行政対応 / 管理・現場運用）で意匠を分ける --- */
+.func-group{margin-top:40px;}
+.func-group .func-grid{margin-top:18px;}
+.func-gh{display:flex;align-items:center;gap:14px;}
+.func-gh h3{margin:0;font-size:19px;font-weight:900;color:#fff;white-space:nowrap;}
+.func-gh .en{font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.1em;color:#8FC4F4;white-space:nowrap;}
+.func-gh .ln{flex:1;height:1px;background:linear-gradient(90deg,rgba(143,196,244,0.42),rgba(143,196,244,0));}
+/* A: AI・解析 — 角丸スクエアのグラデーションアイコンで主役感を出す */
+.gv-ai .func-card{background:linear-gradient(165deg,rgba(36,195,154,0.16) 0%,rgba(35,96,214,0.10) 100%);border:1px solid rgba(126,240,205,0.34);border-radius:14px;text-align:left;padding:28px 22px 26px;}
+.gv-ai .func-ic{width:64px;height:64px;margin:0;border-radius:18px;background:linear-gradient(140deg,#12B98C 0%,#2360D6 100%);box-shadow:0 12px 26px rgba(6,34,84,0.42);}
+.gv-ai .func-ic svg{width:32px;height:32px;stroke:#fff;}
+.gv-ai .func-ic .sp1,.gv-ai .func-ic .sp2,.gv-ai .func-ic .sp3{display:none;}
+.gv-ai .func-card h3{margin-top:20px;}
+/* B: 調査業務・行政対応 — 既存の白丸アイコン意匠を踏襲 */
+.gv-gov .func-card{background:rgba(255,255,255,0.07);}
+/* C: 管理・現場運用 — 小さめチップアイコンの横並びでフラットに */
+.gv-ops .func-card{background:rgba(255,255,255,0.045);border:1px solid rgba(143,196,244,0.18);border-radius:10px;text-align:left;padding:24px 20px 22px;display:flex;gap:14px;align-items:flex-start;}
+.gv-ops .func-ic{flex:0 0 auto;width:44px;height:44px;margin:2px 0 0;border-radius:12px;background:rgba(143,196,244,0.14);border:1px solid rgba(143,196,244,0.30);box-shadow:none;}
+.gv-ops .func-ic svg{width:23px;height:23px;stroke:#8FC4F4;}
+.gv-ops .func-ic .sp1,.gv-ops .func-ic .sp2,.gv-ops .func-ic .sp3{display:none;}
+.gv-ops .func-card h3{margin:0;font-size:15px;}
+.gv-ops .func-card p{margin-top:8px;}
+@media (max-width:560px){
+  .func-group{margin-top:30px;}
+  .func-gh h3{font-size:16px;}
+  .func-gh .en{font-size:10.5px;}
+  .gv-ai .func-card{padding:20px 14px 18px;}
+  .gv-ai .func-ic{width:52px;height:52px;border-radius:14px;}
+  .gv-ai .func-ic svg{width:26px;height:26px;}
+  .gv-ops{grid-template-columns:1fr;}
+  .gv-ops .func-card{padding:18px 14px 16px;gap:12px;align-items:center;}
+  .gv-ops .func-ic{width:38px;height:38px;border-radius:10px;}
+  .gv-ops .func-ic svg{width:20px;height:20px;}
+  .gv-ops .func-card h3{font-size:13px;}
+}
 /* all-in-one detail rows */
 .aio-row{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;padding:44px 40px;border-radius:14px;}
 .aio-row:nth-child(even){background:#F1F6FE;}
@@ -260,7 +280,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   /* demo: 3 tabs only, small-radius chips, taller screen, no reserve button */
   #demo-tabs{display:flex!important;flex-wrap:wrap!important;max-width:100%!important;padding:6px!important;gap:6px!important;box-sizing:border-box!important;border-radius:12px!important;margin:20px 0 12px!important;}
   .demo-tab{padding:9px 14px!important;font-size:12px!important;border-radius:8px!important;}
-  .demo-tab[data-idx="3"],.demo-tab[data-idx="4"]{display:none!important;}
+  
   .demo-stage{aspect-ratio:12/10!important;}
   .demo-reserve{display:none!important;}
   #demo a.om-cta{padding:13px 20px!important;font-size:13px!important;box-sizing:border-box!important;text-align:center!important;}
@@ -368,12 +388,13 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
       "operatingSystem": "Web, iOS, Android",
       "url": "https://astro-hp.vercel.app/",
       "image": "https://astro-hp.vercel.app/assets/ogp.png",
-      "description": "アスベスト事前調査の書面調査・目視調査・報告書作成をワンストップで支援するAI SaaS。図面PDFからの建材抽出、現場写真からの含有判定、行政報告用CSVの自動作成に対応。",
+      "description": "アスベスト事前調査の書面調査・目視調査・報告書作成をワンストップで支援するAI SaaS。図面PDFからの建材抽出、現場写真からの含有判定、建材型番の石綿DB照合、行政報告用CSVの自動作成に対応。",
       "featureList": [
         "GビズID完全対応の電子報告",
-        "図面解析AI Zumiru（石綿含有建材データベースと自動照合）",
-        "写真判定AI Asmiru（現場写真から含有のおそれを判定）",
-        "報告書作成AI Hokumiru（報告様式と申請用CSVを自動作成）",
+        "図面解析AI（図面PDFから建材を抽出し石綿含有建材データベースと自動照合）",
+        "石綿写真解析AI（現場写真から含有のおそれを判定）",
+        "石綿型番検索AI（建材の型番を石綿建材データベースと照合し根拠資料を提示）",
+        "GBiz報告書作成AI（報告様式と申請用CSVを自動作成）",
         "石綿含有建材データベース検索",
         "アスベスト分析機関検索"
       ],
@@ -389,7 +410,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
       "@type": "WebPage",
       "@id": "https://astro-hp.vercel.app/#webpage",
       "url": "https://astro-hp.vercel.app/",
-      "name": "アスベスト事前調査AI「Astro」｜書面・目視・報告を3つのAIで効率化",
+      "name": "アスベスト事前調査AI「Astro」｜書面・目視・報告を4つのAIで効率化",
       "isPartOf": { "@id": "https://astro-hp.vercel.app/#website" },
       "about": { "@id": "https://astro-hp.vercel.app/#organization" },
       "inLanguage": "ja"
@@ -452,7 +473,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
           <span style="background:#0B2A66;display:inline-block;padding:10px 16px;white-space:nowrap;animation:heroReveal .8s cubic-bezier(.22,.61,.36,1) both .2s;">アスベスト事前調査を</span>
           <span style="background:#0B2A66;display:inline-block;padding:10px 16px;white-space:nowrap;animation:heroReveal .8s cubic-bezier(.22,.61,.36,1) both .45s;">AIで次のステージへ</span>
         </h1>
-        <p class="hero-sub" style="margin:26px 0 0;color:#fff;line-height:1.9;text-shadow:0 1px 10px rgba(11,42,102,0.4);animation:heroFade .9s ease both .85s;"><span style="font-size:22px;font-weight:900;">書面調査</span><span style="font-size:15px;">•</span><span style="font-size:22px;font-weight:900;">目視調査</span><span style="font-size:15px;">•</span><span style="font-size:22px;font-weight:900;">報告書作成</span><span style="font-size:15px;">の</span><br><span style="font-size:22px;font-weight:900;">すべての工程</span><span style="font-size:15px;">を</span><span style="font-size:22px;font-weight:900;">3つのAI</span><span style="font-size:15px;">が</span><span style="font-size:22px;font-weight:900;">効率化</span><span style="font-size:15px;">する</span><br><span style="font-size:22px;font-weight:900;white-space:nowrap;">AIサービス</span><span style="font-size:15px;">です。</span></p>
+        <p class="hero-sub" style="margin:26px 0 0;color:#fff;line-height:1.9;text-shadow:0 1px 10px rgba(11,42,102,0.4);animation:heroFade .9s ease both .85s;"><span style="font-size:22px;font-weight:900;">書面調査</span><span style="font-size:15px;">•</span><span style="font-size:22px;font-weight:900;">目視調査</span><span style="font-size:15px;">•</span><span style="font-size:22px;font-weight:900;">報告書作成</span><span style="font-size:15px;">の</span><br><span style="font-size:22px;font-weight:900;">すべての工程</span><span style="font-size:15px;">を</span><span style="font-size:22px;font-weight:900;">4つのAI</span><span style="font-size:15px;">が</span><span style="font-size:22px;font-weight:900;">効率化</span><span style="font-size:15px;">する</span><br><span style="font-size:22px;font-weight:900;white-space:nowrap;">AIサービス</span><span style="font-size:15px;">です。</span></p>
         <div class="hero-cta-card" style="display:inline-flex;flex-direction:column;align-items:center;gap:12px;margin-top:30px;background:#fff;border-radius:16px;padding:16px 24px 16px;position:relative;z-index:2;box-shadow:0 10px 28px rgba(6,18,40,0.25);animation:heroPop .9s cubic-bezier(.22,.61,.36,1) both 1.15s;">
           <div class="hero-cta-cols" style="display:flex;gap:28px;">
           <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
@@ -538,58 +559,26 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   <div style="position:relative;max-width:1160px;margin:0 auto;text-align:center;" data-anim="up">
     <p style="margin:0;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;background:linear-gradient(90deg,#0E8C6E 0%,#1B6FE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;">Experience</p>
     <h2 style="margin:12px 0 0;font-size:36px;font-weight:900;color:#10315C;">Astroのデモ体験</h2>
-    <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#4B5563;">工程を選ぶと、実際の操作画面をご覧いただけます。</p>
+    <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#4B5563;">4つのAIを選ぶと、実際の操作画面の録画をご覧いただけます。</p>
     <div id="demo-tabs" style="display:inline-flex;gap:10px;background:#fff;border-radius:999px;padding:10px;box-shadow:0 8px 24px rgba(11,43,83,0.1);margin:30px 0 26px;flex-wrap:wrap;justify-content:center;">
-      <button class="demo-tab active" data-idx="0">書面調査</button>
-      <button class="demo-tab" data-idx="1">目視調査</button>
-      <button class="demo-tab" data-idx="2">報告・申請</button>
-      <button class="demo-tab" data-idx="3">建材検索</button>
-      <button class="demo-tab" data-idx="4">分析機関検索</button>
+      <button class="demo-tab active" data-idx="0">石綿写真解析AI</button>
+      <button class="demo-tab" data-idx="1">石綿型番検索AI</button>
+      <button class="demo-tab" data-idx="2">図面解析AI</button>
+      <button class="demo-tab" data-idx="3">GBiz報告書作成AI</button>
     </div>
     <div style="max-width:920px;margin:0 auto;">
       <div style="background:#0E2340;border-radius:16px 16px 0 0;padding:12px 16px;display:flex;align-items:center;gap:8px;">
         <span style="width:11px;height:11px;border-radius:50%;background:#FF5F57;"></span>
         <span style="width:11px;height:11px;border-radius:50%;background:#FEBC2E;"></span>
         <span style="width:11px;height:11px;border-radius:50%;background:#28C840;"></span>
-        <span style="margin-left:14px;font-family:'Barlow',sans-serif;font-size:12px;color:#9DB4D8;">app.astro.jp ｜ <span id="demo-url-label">書面調査</span></span>
+        <span style="margin-left:14px;font-family:'Barlow',sans-serif;font-size:12px;color:#9DB4D8;">app.astro.jp ｜ <span id="demo-url-label">石綿写真解析AI</span></span>
       </div>
       <div style="border:1px solid #D8E2F1;border-top:none;border-radius:0 0 16px 16px;background:#fff;padding:10px;box-shadow:0 24px 60px rgba(11,43,83,0.16);">
-        <div class="demo-stage" style="position:relative;aspect-ratio:12/10;border-radius:8px;overflow:hidden;background:#EAF1FF;">
-          <div class="demo-panel active" data-idx="0">
-            <div class="demo-seq" id="demo-seq">
-              <div class="demo-frame on" data-f="0"><img src="assets/demo-doc-1.png" alt="図面資料をアップロード" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="1"><img src="assets/demo-doc-2.png" alt="AIが建材を抽出" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="2"><img src="assets/demo-doc-3.png" alt="石綿含有建材DBと照合" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="3"><img src="assets/demo-doc-4.png" alt="メーカー情報を統合" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="4"><img src="assets/demo-doc-5.png" alt="解析結果を表示" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="5"><img src="assets/demo-doc-6.png" alt="石綿採取計画表をエクセル出力" loading="lazy" decoding="async"></div>
-              <div class="demo-dots" id="demo-dots"></div>
-            </div>
-          </div>
-          <div class="demo-panel" data-idx="1">
-            <div class="demo-seq" id="demo-seq-vis">
-              <div class="demo-frame on" data-f="0"><img src="assets/demo-vis-1.png" alt="現場写真をアップロード" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="1"><img src="assets/demo-vis-2.png" alt="解析する範囲を指定" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="2"><img src="assets/demo-vis-3.png" alt="AIが写真を解析" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="3"><img src="assets/demo-vis-4.png" alt="含有のおそれを画像上に表示" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="4"><img src="assets/demo-vis-5.png" alt="判定結果を確認" loading="lazy" decoding="async"></div>
-              <div class="demo-frame pan" data-f="5"><img src="assets/demo-vis-6.png" alt="判定結果の詳細を一覧で確認" loading="lazy" decoding="async"></div>
-              <div class="demo-dots" id="demo-dots-vis"></div>
-            </div>
-          </div>
-          <div class="demo-panel" data-idx="2">
-            <div class="demo-seq" id="demo-seq-rep">
-              <div class="demo-frame on" data-f="0"><img src="assets/demo-rep-1.png" alt="調査結果を取り込む" loading="lazy" decoding="async"></div>
-              <div class="demo-frame pan" data-f="1" style="--pan:8s"><img src="assets/demo-rep-2.jpg" alt="報告様式に自動で反映" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="2"><img src="assets/demo-rep-3.png" alt="内容を確認・編集" loading="lazy" decoding="async"></div>
-              <div class="demo-frame pan" data-f="3" style="--pan:6s"><img src="assets/demo-rep-4.jpg" alt="報告書の全体を確認" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="4"><img src="assets/demo-rep-5.png" alt="申請用CSVを出力" loading="lazy" decoding="async"></div>
-              <div class="demo-frame" data-f="5"><img src="assets/demo-rep-6.png" alt="提出書類が完成" loading="lazy" decoding="async"></div>
-              <div class="demo-dots" id="demo-dots-rep"></div>
-            </div>
-          </div>
-          <div class="demo-panel" data-idx="3"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>建材データベース検索の操作画面</span></div></div>
-          <div class="demo-panel" data-idx="4"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>分析機関検索の操作画面</span></div></div>
+        <div class="demo-stage" style="position:relative;aspect-ratio:16/10;border-radius:8px;overflow:hidden;background:#EAF1FF;">
+          <div class="demo-panel active" data-idx="0"><video class="demo-vid" data-idx="0" src="assets/demo-photo.mp4" poster="assets/demo-photo-poster.jpg" muted playsinline loop preload="metadata" aria-label="石綿写真解析AIの操作画面の録画"></video></div>
+          <div class="demo-panel" data-idx="1"><video class="demo-vid" data-idx="1" src="assets/demo-model.mp4" poster="assets/demo-model-poster.jpg" muted playsinline loop preload="none" aria-label="石綿型番検索AIの操作画面の録画"></video></div>
+          <div class="demo-panel" data-idx="2"><video class="demo-vid" data-idx="2" src="assets/demo-drawing.mp4" poster="assets/demo-drawing-poster.jpg" muted playsinline loop preload="none" aria-label="図面解析AIの操作画面の録画"></video></div>
+          <div class="demo-panel" data-idx="3"><video class="demo-vid" data-idx="3" src="assets/demo-report.mp4" poster="assets/demo-report-poster.jpg" muted playsinline loop preload="none" aria-label="GBiz報告書作成AIの操作画面の録画"></video></div>
           <button id="demo-play" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;border:none;cursor:pointer;background:rgba(35,96,214,0.94);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(6,18,40,0.35);">
             <span id="demo-play-icon" style="border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px;"></span>
           </button>
@@ -674,7 +663,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   <div style="position:relative;max-width:1120px;margin:0 auto;text-align:center;" data-anim="up">
     <p style="margin:0;font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.08em;color:#8FF0D3;">Solution</p>
     <h2 class="bridge-h" style="margin:16px 0 0;font-size:44px;font-weight:900;line-height:1.5;color:#fff;letter-spacing:0.01em;">その課題、<span class="bridge-em">Astro</span>で<br class="sp-br"><span class="bridge-em">サクッと解決</span>！</h2>
-    <p style="margin:20px 0 0;font-size:16px;font-weight:700;line-height:1.9;color:#CFE0FA;">書面調査から報告・申請まで、3つのAIがまるごと引き受けます。</p>
+    <p style="margin:20px 0 0;font-size:16px;font-weight:700;line-height:1.9;color:#CFE0FA;">書面調査から報告・申請まで、4つのAIがまるごと引き受けます。</p>
     <div class="bridge-img" style="width:400px;max-width:100%;margin:26px auto 0;">
       <img src="assets/img-bridge-t.png" alt="PCを囲むチーム" style="width:100%;height:auto;display:block;">
     </div>
@@ -769,66 +758,92 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
       <h2 style="margin:12px 0 0;font-size:36px;font-weight:900;color:#fff;">機能一覧</h2>
       <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#C7D8F0;"><ruby style="ruby-position:over;ruby-align:center;position:relative;"><span style="position:relative;">石綿<rt style="position:absolute;left:50%;bottom:100%;transform:translateX(-50%);width:max-content;margin-bottom:1px;font-size:10px;font-weight:700;color:#C7D8F0;letter-spacing:-0.02em;white-space:nowrap;">アスベスト</rt></span></ruby>事前調査の業務が、これひとつで完了します。</p>
     </div>
-    <div class="func-grid" data-anim="up">
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;background:#4A90D9;color:#fff;font-size:14px;font-weight:900;">Gビズ</span></div>
-        <h3>Gビズ完全対応</h3>
-        <p>行政への事前調査結果の電子報告（Gビズ）に対応。申請用CSVのアップロードだけで完了</p>
+    <!-- グループ1: AI・解析 -->
+    <div class="func-group" data-anim="up">
+      <div class="func-gh"><span class="en">AI Analysis</span><h3>AI・解析</h3><span class="ln"></span></div>
+      <div class="func-grid gv-ai">
+        <div class="func-card">
+          <div class="func-ic"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M8 12h5v5h-5z"/><path d="M8 12l5 5"/></svg></div>
+          <h3>図面解析AI</h3>
+          <p>仕上表等の図面PDFをアップするだけで、AIが対象建材を自動で抽出</p>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/><path d="M12 13m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/></svg></div>
+          <h3>石綿写真解析AI</h3>
+          <p>現場で撮った断面写真から、石綿含有のおそれを約30秒で判定</p>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/><path d="M7 10h6"/></svg></div>
+          <h3>石綿型番検索AI</h3>
+          <p>建材の型番を入力するだけで、該当するメーカー資料をその場で表示</p>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9h1"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></div>
+          <h3>Gビズ報告書作成AI</h3>
+          <p>調査結果を取り込むだけで、報告様式の記載内容を自動で作成</p>
+        </div>
       </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#24C39A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"/><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"/></svg></div>
-        <h3>工事情報複製機能</h3>
-        <p>工事情報の複製ができるので、マンションやビル等の同現場工事に便利</p>
+    </div>
+
+    <!-- グループ2: 調査業務・行政対応 -->
+    <div class="func-group" data-anim="up">
+      <div class="func-gh"><span class="en">Survey &amp; Report</span><h3>調査業務・行政対応</h3><span class="ln"></span></div>
+      <div class="func-grid gv-gov">
+        <div class="func-card">
+          <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;background:#4A90D9;color:#fff;font-size:14px;font-weight:900;">Gビズ</span></div>
+          <h3>Gビズ完全対応</h3>
+          <p>行政への事前調査結果の電子報告（Gビズ）に対応。申請用CSVのアップロードだけで完了</p>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2360D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></div>
+          <h3>石綿建材DB検索</h3>
+          <p>国の石綿含有建材データベースを横断検索。含有率や製造期間もその場で確認可能</p>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#24C39A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></div>
+          <h3>分析機関検索機能</h3>
+          <p>検体の定性・定量分析を依頼できる機関を、地域や条件から検索可能</p>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F6A21E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M12 11v6"/><path d="M9.5 14.5l2.5 2.5l2.5 -2.5"/></svg></div>
+          <h3>採取計画表の自動出力</h3>
+          <p>図面解析の結果から、石綿採取計画表をExcel形式で自動出力</p>
+        </div>
       </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E45865" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.871l-8.106 -13.534a1.914 1.914 0 0 0 -3.274 0z"/><path d="M12 16h.01"/></svg></div>
-        <h3>抜け漏れアラート機能</h3>
-        <p>入力漏れがあった場合アラートが出るので、誰でも正確な書類作成が可能</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2360D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"/><path d="M9 15l3 -3l3 3"/><path d="M12 12l0 9"/></svg></div>
-        <h3>下書き保存機能</h3>
-        <p>急なトラブルでも下書き保存機能を使えば、後から編集・追加が可能</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F6A21E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></div>
-        <h3>看板自動作成機能</h3>
-        <p>工事情報を入力するだけで、法令対応に必要な項目が揃った看板を自動作成</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2360D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"/><path d="M11 4h2"/><path d="M12 17v.01"/></svg></div>
-        <h3>スマホ・タブレット対応</h3>
-        <p>スマホ操作が可能なので、現場からでも情報の入力・編集・確認が可能</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E45865" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8h.01"/><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"/><path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5"/><path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3"/></svg></div>
-        <h3>写真・PDF登録可能</h3>
-        <p>法令対応に必要な現場の写真や、図面等のPDFが工事毎に保管可能</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#10315C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5l1.5 1.5l2.5 -2.5"/><path d="M3.5 11.5l1.5 1.5l2.5 -2.5"/><path d="M3.5 17.5l1.5 1.5l2.5 -2.5"/><path d="M11 6l9 0"/><path d="M11 12l9 0"/><path d="M11 18l9 0"/></svg></div>
-        <h3>事前調査結果一覧</h3>
-        <p>申請前に、工事毎の事前調査結果が一覧で確認可能。申請の抜け漏れを防止</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#10315C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg></div>
-        <h3>本社管理機能</h3>
-        <p>複数支店が登録した工事情報の内容や登録・申請の進捗を一元管理可能</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#24C39A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></div>
-        <h3>下請け登録機能</h3>
-        <p>書類に必要な下請け業者の情報を事前に登録。選択するだけで紐付け完了</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2360D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 6l6 0"/><path d="M16 6l4 0"/><path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 12l2 0"/><path d="M10 12l10 0"/><path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 18l11 0"/><path d="M19 18l1 0"/></svg></div>
-        <h3>入力コスト徹底カット</h3>
-        <p>同一の内容は選択式となっており、選ぶだけの簡単入力が可能</p>
-      </div>
-      <div class="func-card">
-        <div class="func-ic"><span class="sp1">+</span><span class="sp2">+</span><span class="sp3">+</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F6A21E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 20l14 0"/></svg></div>
-        <h3>一目でわかる進捗管理</h3>
-        <p>石綿の管理業務に必要な情報が一覧表示されるため、ラクラク進捗管理</p>
+    </div>
+
+    <!-- グループ3: 管理・現場運用 -->
+    <div class="func-group" data-anim="up">
+      <div class="func-gh"><span class="en">Management</span><h3>管理・現場運用</h3><span class="ln"></span></div>
+      <div class="func-grid gv-ops">
+        <div class="func-card">
+          <div class="func-ic"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#8FC4F4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"/></svg></div>
+          <div>
+            <h3>工事情報の一元管理</h3>
+            <p>図面・写真・解析結果・報告書類が工事毎に集約されるので、引き継ぎも簡単</p>
+          </div>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#8FC4F4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"/><path d="M11 4h2"/><path d="M12 17v.01"/></svg></div>
+          <div>
+            <h3>スマホ・タブレット対応</h3>
+            <p>スマホ操作が可能なので、現場からでも撮影・解析・確認が可能</p>
+          </div>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#8FC4F4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></div>
+          <div>
+            <h3>チーム・権限管理機能</h3>
+            <p>メンバー毎に権限を設定でき、会社単位でデータを安全に分離</p>
+          </div>
+        </div>
+        <div class="func-card">
+          <div class="func-ic"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#8FC4F4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"/><path d="M9 17v1a3 3 0 0 0 6 0v-1"/></svg></div>
+          <div>
+            <h3>メール・プッシュ通知</h3>
+            <p>解析の完了や確認依頼をメールとアプリに即時通知するので、現場でも見逃さない</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -851,7 +866,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
           <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">申請用CSVをGビズにアップロードするだけ。すぐに完了。</p>
           <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">Astroが出力する申請用CSVは、行政の電子報告（GビズID）の様式に対応。作成した報告内容をそのままアップロードするだけで、事前調査結果の報告がすぐに完了します。様式の転記作業はもう必要ありません。</p>
         </div>
-        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Gビズ報告フローのイラスト（差し替え）</span></div></div>
+        <div class="aio-ph"><img src="assets/aio-01-gbiz.png" alt="石綿事前調査結果報告システムのGビズIDログイン画面" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;"></div>
       </div>
 
       <div class="aio-row rev" data-anim="up">
@@ -859,49 +874,49 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
           <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">02<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">工事管理</span></p>
           <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">現場・工事単位の一元管理</h3>
           <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">図面・写真・解析結果・報告書類を、工事ごとにまとめて管理。</p>
-          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">案件ごとに調査に関わる資料と結果を集約。複数現場の進捗も一覧で把握でき、担当者間の引き継ぎや本社からの確認もスムーズです。</p>
+          <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">工事ごとに調査に関わる資料と結果を集約。複数現場の進捗も一覧で把握でき、担当者間の引き継ぎや本社からの確認もスムーズです。</p>
         </div>
-        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>工事管理画面のイラスト（差し替え）</span></div></div>
+        <div class="aio-ph"><img src="assets/aio-02-project.png" alt="工事単位で図面・写真・解析結果・報告書類をまとめて管理する画面" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;"></div>
       </div>
 
       <div class="aio-row" data-anim="up">
         <div>
-          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">03<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">図面解析AI</span></p>
-          <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">Zumiru<span style="margin-left:10px;font-size:15px;color:#7A879B;">ズミル</span></h3>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">03<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">書面調査</span></p>
+          <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">図面解析AI<span style="margin-left:10px;font-size:15px;color:#7A879B;">図面で解析</span></h3>
           <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">図面PDFから建材を自動抽出し、石綿DBと照合。</p>
           <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">仕上表などの図面PDFをアップロードするだけで、AIが建材を拾い出し、石綿含有建材データベースと自動照合。メーカー情報まで統合し、石綿採取計画表のExcel出力まで一気通貫で行えます。</p>
         </div>
-        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Zumiru 解析画面のイラスト（差し替え）</span></div></div>
+        <div class="aio-ph"><img src="assets/aio-03-drawing.png" alt="図面解析AIが図面PDFから建材を抽出し石綿DBと照合した結果画面" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;"></div>
       </div>
 
       <div class="aio-row rev" data-anim="up">
         <div>
-          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">04<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">写真判定AI</span></p>
-          <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">Asmiru<span style="margin-left:10px;font-size:15px;color:#7A879B;">アスミル</span></h3>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">04<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">目視調査</span></p>
+          <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">石綿写真解析AI<span style="margin-left:10px;font-size:15px;color:#7A879B;">写真で解析</span></h3>
           <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">現場写真から、石綿含有のおそれをその場で判定。</p>
           <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">スマホで撮影した建材の断面写真をアップロードすると、独自AIが石綿含有のおそれを判定（建材スクリーニング）。分析機関に出す検体の絞り込みに役立ち、分析費用の削減につながります。</p>
         </div>
-        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Asmiru 判定画面のイラスト（差し替え）</span></div></div>
+        <div class="aio-ph"><img src="assets/aio-04-photo.png" alt="石綿写真解析AIに現場写真をアップロードする画面" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;"></div>
       </div>
 
       <div class="aio-row" data-anim="up">
         <div>
-          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">05<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">型番検索</span></p>
-          <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">Katamiru<span style="margin-left:10px;font-size:15px;color:#7A879B;">カタミル</span></h3>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">05<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">建材特定</span></p>
+          <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">石綿型番検索AI<span style="margin-left:10px;font-size:15px;color:#7A879B;">型番で照合</span></h3>
           <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">建材の型番から、メーカー資料を即表示。</p>
           <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">図面や現場で確認した型番を入力するだけで、該当するメーカー資料をすぐに表示。目視調査中の建材特定を高速化し、判定の根拠資料もその場で揃います。</p>
         </div>
-        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Katamiru 検索画面のイラスト（差し替え）</span></div></div>
+        <div class="aio-ph"><img src="assets/aio-05-model.png" alt="石綿型番検索AIが型番を石綿建材DBと照合し根拠資料を提示した画面" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;"></div>
       </div>
 
       <div class="aio-row rev" data-anim="up">
         <div>
-          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">06<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">報告書作成AI</span></p>
-          <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">Hokumiru<span style="margin-left:10px;font-size:15px;color:#7A879B;">ホクミル</span></h3>
+          <p class="mono" style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.14em;color:#2360D6;">06<span style="margin-left:10px;font-family:inherit;letter-spacing:0.04em;color:#7A879B;">報告・申請</span></p>
+          <h3 style="margin:12px 0 0;font-size:22px;font-weight:900;color:#10315C;">GBiz報告書作成AI<span style="margin-left:10px;font-size:15px;color:#7A879B;">報告書を作成</span></h3>
           <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">調査結果から、国の報告様式と申請用CSVを自動作成。</p>
           <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">図面や調査結果を取り込むと、AIが報告様式の記載内容を候補として提示。問題なければ一括反映、不足情報はチャットで補足するだけで、行政報告資料と申請用CSVが完成します。</p>
         </div>
-        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>Hokumiru 作成画面のイラスト（差し替え）</span></div></div>
+        <div class="aio-ph"><img src="assets/aio-06-report.png" alt="報告書作成AIが解析結果から報告内容を自動充填し、AIアシスタントが入力を補助する画面" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;"></div>
       </div>
 
       <div class="aio-row" data-anim="up">
@@ -911,7 +926,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
           <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">検体の分析先を、地域や条件からすぐに探せる。</p>
           <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">検体の定性・定量分析を依頼できる分析機関を、地域や対応条件から検索。調査から分析依頼までの流れがAstroの中で完結します。</p>
         </div>
-        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>分析機関検索画面のイラスト（差し替え）</span></div></div>
+        <div class="aio-ph"><img src="assets/aio-07-lab.png" alt="アスベスト分析機関を地域や条件から検索する画面" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;"></div>
       </div>
 
       <div class="aio-row rev" data-anim="up">
@@ -921,7 +936,7 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
           <p style="margin:14px 0 0;font-size:15px;font-weight:700;color:#2360D6;">国の石綿DB 44分類・2,151件を横断検索。</p>
           <p style="margin:12px 0 0;font-size:14px;line-height:2;color:#111827;">建材名・メーカー名などから国の石綿含有建材データベースを検索。含有率や製造期間といった判定の根拠となる情報を、その場で確認できます。</p>
         </div>
-        <div class="aio-ph"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8593AC" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 15l4-4 3 3 4-5 7 7"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg><span>石綿DB検索画面のイラスト（差し替え）</span></div></div>
+        <div class="aio-ph"><img src="assets/aio-08-db.png" alt="石綿含有建材データベースを横断検索し建材の詳細を確認する画面" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;"></div>
       </div>
 
     </div>
@@ -1134,182 +1149,99 @@ section[id],div[id="top"]{scroll-margin-top:96px;}
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
 
-  /* ---- demo tabs ---- */
-  var labels = ['書面調査', '目視調査', '報告・申請', '建材検索', '分析機関検索'];
-  var steps = ['STEP 1', 'STEP 2', 'STEP 3', 'STEP 4', 'STEP 5'];
+  /* ---- demo tabs（4AI / 実機録画） ---- */
+  var labels   = ['石綿写真解析AI', '石綿型番検索AI', '図面解析AI', 'GBiz報告書作成AI'];
+  var badges   = ['写真で解析', '型番で照合', '図面で解析', '報告書を作成'];
   var captions = [
-    '図面PDFをアップロードし、建材を自動で拾い出して採取計画表を出力するまでの流れです。',
-    '現場でスマホ撮影してから、約30秒で含有の可能性を判定するまでの流れです。',
-    '調査結果を取り込み、国の報告様式と一括申請CSVを出力するまでの流れです。',
-    '製品名やメーカーから建材データベースを検索し、石綿含有情報を照合するまでの流れです。',
-    '検体の分析を依頼できる分析機関を、地域や条件から検索するまでの流れです。'
+    'ダッシュボードから石綿写真解析AIを開き、工事を選んで現場写真をアップロード。解析済みの工事では、含有のおそれと検出箇所を画像上で確認できます。',
+    '建材の型番を入力すると、国内最大級の石綿建材データベースと照合し、一致率と根拠資料つきで候補を提示します。',
+    '図面PDFをアップロードすると、AIが建材を抽出して石綿含有建材データベースと照合。抽出建材数と石綿検出数を一覧で確認できます。',
+    '解析済みの工事を選ぶと、Gビズ報告用の入力内容が自動で充填されます。AIアシスタントに聞きながら不足を埋め、申請様式Excelを出力できます。'
   ];
-  var tabs = document.querySelectorAll('.demo-tab');
+  var tabs   = document.querySelectorAll('.demo-tab');
   var panels = document.querySelectorAll('.demo-panel');
+  var vids   = document.querySelectorAll('.demo-vid');
   var urlLabel = document.getElementById('demo-url-label');
-  var stepEl = document.getElementById('demo-step');
-  var capEl = document.getElementById('demo-caption');
-  var progEl = document.getElementById('demo-progress');
+  var stepEl   = document.getElementById('demo-step');
+  var capEl    = document.getElementById('demo-caption');
+  var progEl   = document.getElementById('demo-progress');
+  var playBtn  = document.getElementById('demo-play');
+  var playIcon = document.getElementById('demo-play-icon');
+  var activeTab = 0;
 
-  /* ---- slideshows (書面調査 / 目視調査) ---- */
-  // 5s fully-visible dwell + 2s cross-dissolve (transition is NOT part of the dwell)
-  var DWELL_MS = 5000, TRANS_MS = 2000, FRAME_MS = DWELL_MS + TRANS_MS;
-  var PAN_MS = 4000;  // tall capture pans top->bottom over 4s (CSS demoPan)
-  var timer = null, playing = false, activeTab = 0;
+  function activeVid() { return vids[activeTab]; }
 
-  // a panning frame needs to stay until its scroll finishes:
-  // 1.6s delay + pan duration + 1s tail. Non-pan frames use FRAME_MS.
-  function holdFor(frame) {
-    if (!frame || !frame.classList.contains('pan')) return FRAME_MS;
-    var pan = parseFloat(getComputedStyle(frame).getPropertyValue('--pan')) || 4;
-    return Math.max(FRAME_MS, 1600 + pan * 1000 + 1000);
-  }
-
-  var SEQS = {
-    0: {
-      root: '#demo-seq', dotsId: 'demo-dots',
-      captions: [
-        'まずは図面資料をアップロードしてみましょう。',
-        '図面から建材をAIが自動で抽出します。',
-        '抽出した建材を石綿含有建材データベースと照合します。',
-        'メーカー情報を統合し、建材ごとの情報を揃えます。',
-        '解析が完了し、建材ごとの石綿含有可能性を表示できました。',
-        '最後に石綿採取計画表をエクセル出力できます。'
-      ]
-    },
-    1: {
-      root: '#demo-seq-vis', dotsId: 'demo-dots-vis',
-      captions: [
-        'まずは現場で撮影した写真をアップロードします。',
-        '解析したい範囲を指定します。',
-        'AIが写真を解析し、石綿含有のおそれを検出します。',
-        '含有のおそれがある箇所を画像上に表示できました。',
-        '判定結果を確認します。',
-        '判定の詳細を一覧でまとめて確認できます。'
-      ]
-    },
-    2: {
-      root: '#demo-seq-rep', dotsId: 'demo-dots-rep',
-      captions: [
-        '調査結果を取り込みます。',
-        '国の報告様式に内容が自動で反映されます。',
-        '内容を確認し、必要に応じて編集します。',
-        '報告書の全体を通して確認できます。',
-        '申請用のCSVを出力します。',
-        '提出書類が完成しました。'
-      ]
-    }
-  };
-  Object.keys(SEQS).forEach(function (k) {
-    var s = SEQS[k];
-    s.frames = document.querySelectorAll(s.root + ' .demo-frame');
-    s.cur = 0;
-    s.dots = [];
-    var wrap = document.getElementById(s.dotsId);
-    s.frames.forEach(function (f, i) {
-      var d = document.createElement('button');
-      d.className = 'demo-dot' + (i === 0 ? ' on' : '');
-      d.type = 'button';
-      d.setAttribute('aria-label', (i + 1) + '枚目を表示');
-      d.addEventListener('click', function () { stop(); show(i); });
-      wrap.appendChild(d);
-      s.dots.push(d);
-    });
-  });
-  function seq() { return SEQS[activeTab]; }
-
-  function show(i) {
-    var s = seq();
-    if (!s) return;
-    var prev = s.cur, n = s.frames.length;
-    s.cur = (i + n) % n;
-    s.frames.forEach(function (f, k) {
-      // outgoing frame recedes, so the two never cross-dissolve into mush
-      f.classList.toggle('out', k === prev && prev !== s.cur);
-      f.classList.toggle('on', k === s.cur);
-    });
-    s.dots.forEach(function (d, k) { d.classList.toggle('on', k === s.cur); });
-    stepEl.textContent = 'STEP ' + (s.cur + 1);
-    capEl.textContent = s.captions[s.cur];
-    // snap to this frame's start, then creep to the next over this frame's hold
-    var hold = holdFor(s.frames[s.cur]);
-    progEl.style.transition = 'none';
-    progEl.style.width = (s.cur / n * 100).toFixed(1) + '%';
-    void progEl.offsetWidth;
-    progEl.style.transition = 'width ' + hold + 'ms linear';
-    progEl.style.width = ((s.cur + 1) / n * 100).toFixed(1) + '%';
-    if (playing) queueNext(hold);   // re-arm with this frame's own duration
-  }
-  function queueNext(ms) {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(function () { show(seq().cur + 1); }, ms);
-  }
   function paintPlayBtn() {
-    var icon = document.getElementById('demo-play-icon');
-    var btn = document.getElementById('demo-play');
+    var v = activeVid();
+    var playing = v && !v.paused;
     if (playing) {
-      btn.style.background = 'rgba(16,49,92,0.55)';
-      btn.style.opacity = '0';
-      icon.style.cssText = 'width:16px;height:16px;border-left:5px solid #fff;border-right:5px solid #fff;box-sizing:border-box;';
+      playBtn.style.background = 'rgba(16,49,92,0.55)';
+      playBtn.style.opacity = '0';
+      playIcon.style.cssText = 'width:16px;height:16px;border-left:5px solid #fff;border-right:5px solid #fff;box-sizing:border-box;';
     } else {
-      btn.style.background = 'rgba(35,96,214,0.94)';
-      btn.style.opacity = '1';
-      icon.style.cssText = 'border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px;';
+      playBtn.style.background = 'rgba(35,96,214,0.94)';
+      playBtn.style.opacity = '1';
+      playIcon.style.cssText = 'border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px;';
     }
   }
-  function play() {
-    var s = seq();
-    if (playing || !s) return;
-    playing = true; paintPlayBtn();
-    queueNext(holdFor(s.frames[s.cur]));
+
+  vids.forEach(function (v) {
+    v.addEventListener('timeupdate', function () {
+      if (v !== activeVid() || !v.duration) return;
+      progEl.style.transition = 'width .2s linear';
+      progEl.style.width = (v.currentTime / v.duration * 100).toFixed(1) + '%';
+    });
+    v.addEventListener('play', paintPlayBtn);
+    v.addEventListener('pause', paintPlayBtn);
+  });
+
+  function playActive() {
+    var v = activeVid();
+    if (!v) return;
+    v.preload = 'auto';
+    var pr = v.play();
+    if (pr && pr.catch) pr.catch(function () { paintPlayBtn(); });
   }
-  function stop() {
-    playing = false;
-    if (timer) { clearTimeout(timer); timer = null; }
-    if (seq()) {   // freeze the bar where it is instead of creeping on
-      var w = getComputedStyle(progEl).width;
-      progEl.style.transition = 'none';
-      progEl.style.width = w;
-    }
-    paintPlayBtn();
-  }
+  function pauseAll() { vids.forEach(function (v) { v.pause(); }); }
 
   function selectTab(i) {
-    stop();              // stop the previous sequence before switching
+    pauseAll();
     activeTab = i;
     tabs.forEach(function (t, k) { t.classList.toggle('active', k === i); });
     panels.forEach(function (p, k) { p.classList.toggle('active', k === i); });
     urlLabel.textContent = labels[i];
-    if (seq()) {
-      show(0);
-      play();
-    } else {
-      stepEl.textContent = steps[i];
-      capEl.textContent = captions[i];
-      progEl.style.transition = 'width .4s ease';
-      progEl.style.width = '30%';
-    }
+    stepEl.textContent = badges[i];
+    capEl.textContent = captions[i];
+    progEl.style.transition = 'none';
+    progEl.style.width = '0%';
+    var v = activeVid();
+    if (v) { try { v.currentTime = 0; } catch (e) {} }
+    playActive();
+    paintPlayBtn();
   }
   tabs.forEach(function (t) {
     t.addEventListener('click', function () { selectTab(parseInt(t.getAttribute('data-idx'), 10)); });
   });
-  document.getElementById('demo-play').addEventListener('click', function () {
-    if (!seq()) return;
-    playing ? stop() : play();
+  playBtn.addEventListener('click', function () {
+    var v = activeVid();
+    if (!v) return;
+    v.paused ? playActive() : v.pause();
   });
 
-  // autoplay only while the demo is on screen, and respect reduced-motion
+  // 画面内にあるときだけ再生。reduced-motion では自動再生しない
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var demoSec = document.getElementById('demo');
-  if (demoSec && !reduce) {
+  if (demoSec) {
     new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        if (e.isIntersecting) { if (seq()) play(); }
-        else stop();
+        if (e.isIntersecting) { if (!reduce) playActive(); }
+        else pauseAll();
       });
     }, { threshold: 0.35 }).observe(demoSec);
   }
-  show(0);
+  stepEl.textContent = badges[0];
+  capEl.textContent = captions[0];
+  paintPlayBtn();
 
   /* ---- features carousel: sync dots with swipe (mobile only) ---- */
   (function () {
