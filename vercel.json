@@ -1,16 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "headers": [
+  "redirects": [
     {
-      "source": "/(.*)",
-      "has": [{ "type": "header", "key": "x-forwarded-host", "value": "asbcore.jp" }],
-      "headers": [{ "key": "x-probe-xfh", "value": "1" }]
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "query", "key": "via", "value": "asbcore" }],
-      "headers": [{ "key": "x-probe-query", "value": "1" }]
+      "source": "/:path*",
+      "missing": [
+        { "type": "header", "key": "x-forwarded-host", "value": "asbcore.jp" }
+      ],
+      "destination": "https://asbcore.jp/astro/:path*",
+      "permanent": true
     }
   ]
 }
