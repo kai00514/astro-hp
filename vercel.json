@@ -4,8 +4,13 @@
   "headers": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "astro-hp.vercel.app" }],
-      "headers": [{ "key": "x-host-test", "value": "matched-vercel-host" }]
+      "has": [{ "type": "header", "key": "x-forwarded-host", "value": "asbcore.jp" }],
+      "headers": [{ "key": "x-probe-xfh", "value": "1" }]
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "query", "key": "via", "value": "asbcore" }],
+      "headers": [{ "key": "x-probe-query", "value": "1" }]
     }
   ]
 }
