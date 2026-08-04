@@ -1,14 +1,15 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
+  "headers": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "missing": [
         { "type": "header", "key": "x-forwarded-host", "value": "asbcore.jp" }
       ],
-      "destination": "https://asbcore.jp/astro/:path*",
-      "permanent": true
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
     }
   ]
 }
