@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://astro-hp.vercel.app/sitemap.xml
+Sitemap: https://asbcore.jp/astro/sitemap.xml
